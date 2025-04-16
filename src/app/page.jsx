@@ -9,7 +9,7 @@ export default function Home() {
           <li><a href="#">Créer une histoire</a></li>
           <li><a href="#">Lire les histoires</a></li>
           <li><a href="#">Aider une histoire</a></li>
-          <li><a href="#">Connexion</a></li>
+          <li><a href="/auth/login">Connexion</a></li>
           </ul>
       </nav>
     </div>
