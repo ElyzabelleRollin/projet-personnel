@@ -20,13 +20,13 @@ const CreateNewStoryPage = () => {
     <legend>Limite de suggestions par phrase:</legend>
     <div>
       <input type="radio" id="option1" name="suggestionsLimit" value={3} />
-      <label for="contactChoice1">3</label>
+      <label htmlFor="contactChoice1">3</label>
 
       <input type="radio" id="option2" name="suggestionsLimit" value={5} />
-      <label for="contactChoice2">5</label>
+      <label htmlFor="contactChoice2">5</label>
 
       <input type="radio" id="option3" name="suggestionsLimit" value={7} />
-      <label for="contactChoice3">7</label>
+      <label htmlFor="contactChoice3">7</label>
     </div>
         <label htmlFor="firstSentence">Commencer votre histoire</label>
         <input
