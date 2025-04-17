@@ -22,14 +22,22 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-         <nav>
-        <ul>
-          <li><a href="/stories/createnewstory">Créer une histoire</a></li>
-          <li><a href="/stories/">Lire les histoires</a></li>
-          <li><a href="#">Aider une histoire</a></li>
-          <li><a href="/auth/login">Connexion</a></li>
+        <nav>
+          <ul>
+            <li>
+              <a href="/stories/createnewstory">Créer une histoire</a>
+            </li>
+            <li>
+              <a href="/stories/">Lire les histoires</a>
+            </li>
+            <li>
+              <a href="/stories/helpastory">Aider une histoire</a>
+            </li>
+            <li>
+              <a href="/auth/login">Connexion</a>
+            </li>
           </ul>
-      </nav>
+        </nav>
         {children}
       </body>
     </html>
