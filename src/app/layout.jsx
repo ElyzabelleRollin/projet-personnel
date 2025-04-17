@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import styles from "@/app/_components/global/nav.module.css";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,18 +24,18 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav>
-          <ul>
-            <li>
+        <nav className={styles.nav}>
+          <ul className={styles.list}>
+            <li className={styles.link}>
               <a href="/stories/createnewstory">Créer une histoire</a>
             </li>
-            <li>
+            <li className={styles.link}>
               <a href="/stories/">Lire les histoires</a>
             </li>
-            <li>
+            <li className={styles.link}>
               <a href="/stories/helpastory">Aider une histoire</a>
             </li>
-            <li>
+            <li className={styles.link}>
               <a href="/auth/login">Connexion</a>
             </li>
           </ul>

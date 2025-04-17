@@ -2,7 +2,7 @@ import React from "react";
 import { createClient } from "@/app/_lib/supabase/server";
 
 const Helpastory = async () => {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: stories, error } = await supabase
     .from("stories")
     .select("*")

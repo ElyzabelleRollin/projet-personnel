@@ -1,0 +1,19 @@
+.pageContainer{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.titleContainer{
+ width: 30%;
+ background-color: lightgray;
+
+}
+.formContainer{
+    width: 100%;
+}
+
+.formCreateStory{
+display: flex;
+flex-direction: column;
+}

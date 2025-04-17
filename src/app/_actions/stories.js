@@ -7,7 +7,7 @@ export const createStoryAction = async (formData) => {
   const firstSentence = formData.get("firstSentence");
   const story = { firstSentence };
 
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: newStory, error: newStoryError } = await supabase
     .from("stories")

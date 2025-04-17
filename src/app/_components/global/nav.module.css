@@ -1,0 +1,11 @@
+.nav{
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+}
+.list{
+    display: flex;
+}
+
+.link{
+    margin: 1rem;;
+}

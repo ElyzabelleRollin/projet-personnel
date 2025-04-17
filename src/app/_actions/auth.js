@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const oauthSigninAction = async () => {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // afin que l'url du site soit dynamique et facilement migrable vers un hébergeur
   const origin = headers().get("origin");
@@ -28,7 +28,7 @@ export const oauthSigninAction = async () => {
 };
 
 export const logout = async () => {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { error } = await supabase.auth.signOut();
 
   if (error) {
