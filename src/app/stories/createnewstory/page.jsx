@@ -9,34 +9,100 @@ const CreateNewStoryPage = () => {
         <h1 className={styles.title}>Créer une nouvelle histoire</h1>
       </div>
       <div className={styles.formContainer}>
-      <form action={createStoryAction} className={styles.formCreateStory}>
-        <label htmlFor="title">Nommer votre histoire</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Nommer votre histoire..."
-        />
-    <legend>Limite de suggestions par phrase:</legend>
-    <div>
-      <input type="radio" id="option1" name="suggestionsLimit" value={3} />
-      <label htmlFor="contactChoice1">3</label>
+        <form action={createStoryAction} className={styles.formCreateStory}>
+          <label htmlFor="title" className={styles.label}>
+            Titre
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Nommer votre histoire..."
+            required
+          />
+          <label htmlFor="firstSentence" className={styles.label}>
+            Commencer votre histoire
+          </label>
+          <textarea
+            type="text"
+            id="firstSentence"
+            name="firstSentence"
+            placeholder="Écrivez votre première phrase..."
+            required
+          />
+          <legend className={styles.label}>
+            Limite de suggestions par phrase:
+          </legend>
+          <div>
+            <input
+              type="radio"
+              id="option1"
+              name="suggestionsLimit"
+              value={3}
+              defaultChecked
+              required
+            />
+            <label htmlFor="option1">3</label>
 
-      <input type="radio" id="option2" name="suggestionsLimit" value={5} />
-      <label htmlFor="contactChoice2">5</label>
+            <input
+              type="radio"
+              id="option2"
+              name="suggestionsLimit"
+              value={5}
+            />
+            <label htmlFor="option2">5</label>
 
-      <input type="radio" id="option3" name="suggestionsLimit" value={7} />
-      <label htmlFor="contactChoice3">7</label>
-    </div>
-        <label htmlFor="firstSentence">Commencer votre histoire</label>
-        <input
-          type="text"
-          id="firstSentence"
-          name="firstSentence"
-          placeholder="Écrivez votre première phrase..."
-        />
-        <button type="submit">Créer</button>
-      </form>
+            <input
+              type="radio"
+              id="option3"
+              name="suggestionsLimit"
+              value={7}
+            />
+            <label htmlFor="option3">7</label>
+          </div>
+          <legend className={styles.label}>
+            Nombre de parties par histoire:
+          </legend>
+          <div>
+            <input type="radio" id="option1" name="partiesLimit" value={5} />
+            <label htmlFor="option1">5</label>
+
+            <input type="radio" id="option2" name="partiesLimit" value={10} />
+            <label htmlFor="option2">10</label>
+
+            <input type="radio" id="option3" name="partiesLimit" value={15} />
+            <label htmlFor="option3">15</label>
+          </div>
+          <legend className={styles.label}>Combien de temps pour voter:</legend>
+          <div>
+            <input
+              type="radio"
+              id="option1"
+              name="votingTimeLimit"
+              value={10}
+            />
+            <label htmlFor="option1">10 min</label>
+
+            <input
+              type="radio"
+              id="option2"
+              name="votingTimeLimit"
+              value={24 * 60}
+            />
+            <label htmlFor="option2">24h</label>
+
+            <input
+              type="radio"
+              id="option3"
+              name="votingTimeLimit"
+              value={48 * 60}
+            />
+            <label htmlFor="option3">48h</label>
+          </div>
+          <button type="submit" className={styles.submitButton}>
+            Créer votre histoire
+          </button>
+        </form>
       </div>
     </div>
   );

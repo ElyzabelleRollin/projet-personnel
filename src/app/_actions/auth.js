@@ -7,7 +7,8 @@ export const oauthSigninAction = async () => {
   const supabase = await createClient();
 
   // afin que l'url du site soit dynamique et facilement migrable vers un hébergeur
-  const origin = headers().get("origin");
+  const headersAsync = await headers();
+  const origin =  headersAsync.get("origin");
 
   // on récupère ici l'url vers lequel envoyer l'utilisateur sur github. il n'est pas encore redirigé
   const { error, data } = await supabase.auth.signInWithOAuth({

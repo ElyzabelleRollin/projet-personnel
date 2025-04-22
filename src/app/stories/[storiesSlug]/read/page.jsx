@@ -1,56 +1,52 @@
 import React from "react";
 import { createClient } from "@/app/_lib/supabase/server";
-import {createNewProposalAction} from "@/app/_actions/proposals";
+import { createNewProposalAction } from "@/app/_actions/proposals";
 import styles from "@/app/_components/stories/readstories.module.css";
+import Propositions from "@/app/_components/propositions/propositions";
 
 const ReadStoryPage = async ({ params }) => {
-  const { storiesSlug } = await params; //Get the slug of the quiz
+  const { storiesSlug } = await params;
   const supabase = await createClient();
-  const { data: story, storyError } = await supabase
+  const { data: story } = await supabase
     .from("stories")
     .select("*")
     .eq("slug", storiesSlug)
     .single();
 
-  const { data: ideas, ideasError } = await supabase
+  const { data: ideas } = await supabase
     .from("proposals")
     .select("*")
     .eq("story_id", story.id)
-    .order('created_at', { ascending: true });
-
-    const {data: user, userError} = await supabase
-    .from("users")
-    .select("*")
-    .eq("id", story.author)
-    .single();
+    .order("created_at", { ascending: true });
 
   return (
     <div className={styles.container}>
-      {/* Block for story infos */}
       <div className={styles.storyInfos}>
         <h1>{story.title}</h1>
         <p>{story.author}</p>
         <p>{story.created_at.slice(0, 10)}</p>
         <p>{story.story.firstSentence}</p>
       </div>
-      {/* Block for proposals */}
       <div className={styles.proposalsContainer}>
-      {/* Block to display all the existing ideas */}
         <div className={styles.ideasContainer}>
           {ideas.map((idea) => (
-            <div key={idea.id} className={styles.ideas}>
-              <p>{idea.text}</p>
-              <p>{idea.author}</p>
-              <p>{idea.created_at.slice(0,10)}</p>
-            </div>
+            <Propositions idea={idea} key={idea.id} storySlug={storiesSlug} />
           ))}
         </div>
-        <form action={createNewProposalAction} className={styles.propositionForm}>
-          <label htmlFor="proposal">Entrer vote proposition:</label>
-          <input type="text" id="proposal" name="proposal"/>
-          <input type="hidden" id="storyId" name="storyId" value={story.id}/>
-          <input type="hidden" id="storySlug" name="storySlug" value={storiesSlug}/>
-          <button>Envoi</button>
+        <form
+          action={createNewProposalAction}
+          className={styles.propositionForm}
+        >
+          <label htmlFor="proposal">Entrer votre proposition:</label>
+          <input type="text" id="proposal" name="proposal" />
+          <input type="hidden" id="storyId" name="storyId" value={story.id} />
+          <input
+            type="hidden"
+            id="storySlug"
+            name="storySlug"
+            value={storiesSlug}
+          />
+          <button type="submit">Envoi</button>
         </form>
       </div>
     </div>
