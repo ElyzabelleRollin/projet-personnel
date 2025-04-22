@@ -3,22 +3,35 @@ import { addLikeAction } from "@/app/_actions/proposals";
 import { createClient } from "@/app/_lib/supabase/server";
 import styles from "../stories/readstories.module.css";
 
-const Propositions = async ({ idea, storySlug }) => {
+const Propositions = async ({ idea, storySlug, votingDurationMinutes, storyCreatedAt }) => {
   const supabase = await createClient();
-  const { data: proposals, error } = await supabase
-    .from("liked_proposals")
-    .select("*")
-    .eq("proposal_id", idea.id);
+  const { data, error } = await supabase
+  .from("liked_proposals")
+  .select("*")
+  .eq("proposal_id", idea.id);
+
+  const currentTime = Date.now();
+  const creationTime = Date.parse(storyCreatedAt);
+
+  function CalculateDelais(){
+    const timeDifference = currentTime - creationTime;
+    return timeDifference;
+  }
+
   return (
     <div key={idea.id} className={styles.ideas}>
       <p>{idea.text}</p>
       <p>{idea.author}</p>
       <p>{idea.created_at.slice(0, 10)}</p>
-      <form action={addLikeAction}>
-        <input type="hidden" name="proposalId" value={idea.id} />
-        <input type="hidden" name="storySlug" value={storySlug} />
-        <button>{proposals.length} 👍</button>
-      </form>
+      {CalculateDelais() < votingDurationMinutes * 60 * 1000 ? (
+        <form action={addLikeAction}>
+          <input type="hidden" name="proposalId" value={idea.id} />
+          <input type="hidden" name="storySlug" value={storySlug} />
+          <button>{data.length} 👍</button>
+        </form>
+      ) :(
+        <p>{data.length} 👍</p>
+      )}
     </div>
   );
 };

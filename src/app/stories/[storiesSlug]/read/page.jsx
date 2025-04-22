@@ -30,9 +30,10 @@ const ReadStoryPage = async ({ params }) => {
       <div className={styles.proposalsContainer}>
         <div className={styles.ideasContainer}>
           {ideas.map((idea) => (
-            <Propositions idea={idea} key={idea.id} storySlug={storiesSlug} />
+            <Propositions idea={idea} key={idea.id} storySlug={storiesSlug} votingDurationMinutes={story.voting_duration_minutes} storyCreatedAt={story.created_at} />
           ))}
         </div>
+        {ideas.length < story.suggestions_limit && (
         <form
           action={createNewProposalAction}
           className={styles.propositionForm}
@@ -48,6 +49,7 @@ const ReadStoryPage = async ({ params }) => {
           />
           <button type="submit">Envoi</button>
         </form>
+        )}
       </div>
     </div>
   );
