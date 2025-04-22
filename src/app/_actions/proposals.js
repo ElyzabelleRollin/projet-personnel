@@ -1,7 +1,7 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { createClient } from "../_lib/supabase/server";
-import { Irish_Grover } from "next/font/google";
+import { redirect } from "next/navigation";
 
 export const createNewProposalAction = async (formData) => {
   const proposal = formData.get("proposal");
@@ -73,4 +73,77 @@ export const removeLikeAction = async (formData) => {
     .eq("user_id", userConnected.id)
     .single();
     if(deletedLikeError) console.log(deletedLikeError);
+};
+
+export const AcceptPropositionAction = async (formData) => {
+  const chosenSuggestionText = formData.get("chosenSuggestionText");
+  const storyId = formData.get("storyId");
+  const supabase = await createClient();
+  const {
+    data: { user: userConnected },
+  } = await supabase.auth.getUser();
+  //Déterminer à combien de phrase on est rendu:
+  const { data: story, error: storyError } = await supabase
+  .from("stories")
+  .select("story")
+  .eq("id", storyId)
+  .single();
+  if(storyError) console.log(storyError);
+
+  //Ajouter la phrase au json de l'histoire
+  var textList = new Array();
+  story.story.map((text)=>{
+    textList.push(text);
+  })
+  textList.push(chosenSuggestionText);
+
+  //Insérer le nouveau json
+  const { error } = await supabase
+  .from("stories")
+  .update({
+    story: textList,
+    latest_update_time: new Date().toISOString()
+  })
+  .eq("id", storyId);
+
+  //Supprimer toutes les propositions existantes
+  const { errorDelete } = await supabase
+  .from("proposals")
+  .delete()
+  .eq("story_id", storyId);
+
+  //Vérifier si l'histoire est terminée
+  if (textList.length >= story.max_parts) {
+    const { data, error } = await supabase
+      .from("stories")
+      .update({
+        is_completed: true,
+      })
+      .eq("id", storyId);
+  
+    if (error) {
+      console.error("Error updating story:", error);
+    } else {
+      console.log("Story marked as completed:", data);
+    }
+  }
+  
+  //Changer de page
+  redirect(`/profiles/${userConnected.id}/`);
+};
+
+
+export const RefusePropositionAction = async (formData) => {
+  const chosenSuggestionId = formData.get("chosenSuggestionId");
+  const storySlug = formData.get("storySlug");
+
+  const supabase = await createClient();
+  const { data: deletedProposition, error: deletedPropositionError } = await supabase
+    .from("proposals")
+    .delete()
+    .eq("id", chosenSuggestionId)
+    .single();
+    if(deletedPropositionError) console.log(deletedPropositionError);
+
+  revalidatePath(`/stories/${storySlug}/edit`);
 };

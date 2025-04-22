@@ -8,7 +8,7 @@ export const createStoryAction = async (formData) => {
   const suggestionsLimit = formData.get("suggestionsLimit");
   const partiesLimit = formData.get("partiesLimit");
   const votingTimeLimit = formData.get("votingTimeLimit");
-  const story = { firstSentence };
+  const story = [ firstSentence ];
 
   //TODO
   //Éviter des champs vides avec ZOD

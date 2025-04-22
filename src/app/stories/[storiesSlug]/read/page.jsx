@@ -25,12 +25,15 @@ const ReadStoryPage = async ({ params }) => {
         <h1>{story.title}</h1>
         <p>{story.author}</p>
         <p>{story.created_at.slice(0, 10)}</p>
-        <p>{story.story.firstSentence}</p>
+
+        {story.story.map((text)=>(
+          <p key={text}>{text}</p>
+        ))}
       </div>
       <div className={styles.proposalsContainer}>
         <div className={styles.ideasContainer}>
           {ideas.map((idea) => (
-            <Propositions idea={idea} key={idea.id} storySlug={storiesSlug} votingDurationMinutes={story.voting_duration_minutes} storyCreatedAt={story.created_at} />
+            <Propositions idea={idea} key={idea.id} storySlug={storiesSlug} votingDurationMinutes={story.voting_duration_minutes} storyUpdatedAt={story.latest_update_time} />
           ))}
         </div>
         {ideas.length < story.suggestions_limit && (

@@ -3,7 +3,7 @@ import { addLikeAction } from "@/app/_actions/proposals";
 import { createClient } from "@/app/_lib/supabase/server";
 import styles from "../stories/readstories.module.css";
 
-const Propositions = async ({ idea, storySlug, votingDurationMinutes, storyCreatedAt }) => {
+const Propositions = async ({ idea, storySlug, votingDurationMinutes, storyUpdatedAt }) => {
   const supabase = await createClient();
   const { data, error } = await supabase
   .from("liked_proposals")
@@ -11,7 +11,7 @@ const Propositions = async ({ idea, storySlug, votingDurationMinutes, storyCreat
   .eq("proposal_id", idea.id);
 
   const currentTime = Date.now();
-  const creationTime = Date.parse(storyCreatedAt);
+  const creationTime = Date.parse(storyUpdatedAt);
 
   function CalculateDelais(){
     const timeDifference = currentTime - creationTime;
