@@ -85,7 +85,7 @@ export const AcceptPropositionAction = async (formData) => {
   //Déterminer à combien de phrase on est rendu:
   const { data: story, error: storyError } = await supabase
   .from("stories")
-  .select("story")
+  .select("story, max_parts")
   .eq("id", storyId)
   .single();
   if(storyError) console.log(storyError);
