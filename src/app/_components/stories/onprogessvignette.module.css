@@ -1,0 +1,33 @@
+.vignette{
+    background-image: url("https://placehold.co/350x350");
+    height: 350px;
+    width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: scale 0.5s;
+    position: relative;
+}
+
+.vignette:hover{
+    scale: 1.05;
+    transition: scale 0.5s;
+}
+
+.infosContainer{
+    background-color: rgba(78, 78, 78, 0.5);
+    padding: 1em;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.storyTitle{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.3em;
+}
+
+.collaborateurs{
+font-weight: bold;
+color: lightgray;
+}

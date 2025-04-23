@@ -4,13 +4,8 @@
     height: 100%;
 }
 
-.titleContainer{
- width: 30%;
- background-color: lightgray;
-
-}
 .formContainer{
-    width: 500px;
+    width: 600px;
     margin: auto;
 }
 
@@ -20,12 +15,66 @@ flex-direction: column;
 }
 
 .label{
-    margin: 0.5rem 0;
-    font-size: 1.2em;
+    margin: 0.3rem 0;
+    font-size: 1.8em;
 }
 
-.submitButton{
-    width: 200px;
+
+.textInput{
+    border: 0.5px solid #cacaca;
     padding: 0.5em;
-    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.option{
+    background-color: #cacaca;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    /* padding: 0.5em 1em; */
+}
+
+.optionSelected{
+    background-color: #797979;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    /* padding: 0.5em 1em; */
+}
+
+.radio{
+    display: none;
+}
+
+
+.number{
+    position: relative;
+    left: 1rem;
+    top: 0.5rem;
+}
+.numbers{
+    position: relative;
+    left: 0.7rem;
+    top: 0.5rem;
+}
+.time{
+    position: relative;
+    left: 0.2rem;
+    top: 0.5rem;
+}
+.hours{
+    position: relative;
+    left: 0.4rem;
+    top: 0.5rem;
+}
+
+.test{
+    display: flex;
+    gap: 0.5em;
 }

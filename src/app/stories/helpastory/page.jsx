@@ -1,5 +1,9 @@
 import React from "react";
 import { createClient } from "@/app/_lib/supabase/server";
+import TitleContainer from "@/app/_components/global/titlecontainer";
+import styles from "@/app/_components/stories/helpastorypage.module.css";
+import OnProgressVignette from "@/app/_components/stories/onprogressvignette";
+
 
 const Helpastory = async () => {
   const supabase = await createClient();
@@ -8,15 +12,11 @@ const Helpastory = async () => {
     .select("*")
     .eq("is_completed", false);
   return (
-    <div>
-      <h1>Aider une histoire</h1>
-      <div>
+    <div className={styles.pageContainer}>
+      <TitleContainer title={"Histoires en attente d'aide"}/>
+      <div className={styles.vignettesContainer}>
         {stories.map((story) => (
-          <div key={story.slug}>
-            <img src="https://placehold.co/200x300" alt="background" />
-            <p>{story.title}</p>
-            <a href={`/stories/${story.slug}/read`}>Lire l'histoire</a>
-          </div>
+          <OnProgressVignette key={story.slug} story={story}/>
         ))}
       </div>
     </div>
