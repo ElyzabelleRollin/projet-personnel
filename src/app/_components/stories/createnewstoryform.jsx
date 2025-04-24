@@ -38,7 +38,7 @@ const createnewstoryform = () => {
     </div>
     <div className={styles.inputContainer}>
       <legend className={styles.label}>
-      Combien de suggestions souhaitez-vous autoriser par phrase ?
+      Combien de suggestions souhaitez-vous autoriser par paragraphe ?
       </legend>
       <div className={styles.test}>
         <div className={` ${

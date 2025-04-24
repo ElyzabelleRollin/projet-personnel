@@ -1,0 +1,18 @@
+.pageContainer{
+padding: 2em;
+}
+
+.userInfosContainer{
+    background-color: gray;
+    display: flex;
+    padding: 1em;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.profileImg{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    overflow: hidden;
+}

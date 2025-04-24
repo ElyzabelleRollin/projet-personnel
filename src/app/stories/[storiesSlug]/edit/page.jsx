@@ -18,8 +18,13 @@ const EditStoryPage = async ({ params }) => {
     .eq("story_id", story.id)
     .order("likes", { ascending: false });
 
+
+
   return (
+    
     <div>
+        {suggestions.length > 0 ? (
+            <>
         <h1>{story.title}</h1>
         <div>
             <p>Propositions:</p>
@@ -39,6 +44,7 @@ const EditStoryPage = async ({ params }) => {
         <form action={AcceptPropositionAction}>
             <input type="hidden" name="chosenSuggestionText" value={suggestions[0].text}/>
             <input type="hidden" name="storyId" value={story.id}/>
+            <input type="hidden" name="suggestionAuthor" value={suggestions[0].author}/>
             <button>Oui</button>
         </form>
         <form action={RefusePropositionAction}>
@@ -46,6 +52,11 @@ const EditStoryPage = async ({ params }) => {
             <input type="hidden" name="storySlug" value={story.slug}/>
             <button>Non</button>
         </form>
+            </>
+
+        ): (<div>
+            <h1>null</h1>
+        </div>)}
     </div>
   )
 }

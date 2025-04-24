@@ -77,6 +77,7 @@ export const removeLikeAction = async (formData) => {
 
 export const AcceptPropositionAction = async (formData) => {
   const chosenSuggestionText = formData.get("chosenSuggestionText");
+  const suggestionAuthor = formData.get("suggestionAuthor");
   const storyId = formData.get("storyId");
   const supabase = await createClient();
   const {
@@ -85,7 +86,7 @@ export const AcceptPropositionAction = async (formData) => {
   //Déterminer à combien de phrase on est rendu:
   const { data: story, error: storyError } = await supabase
   .from("stories")
-  .select("story, max_parts")
+  .select("story, max_parts, collaborators, author")
   .eq("id", storyId)
   .single();
   if(storyError) console.log(storyError);
@@ -96,15 +97,29 @@ export const AcceptPropositionAction = async (formData) => {
     textList.push(text);
   })
   textList.push(chosenSuggestionText);
+  
+  //Ajouter les collaborateurs au json de l'histoire
+  var collaboratorsList = new Array();
+  if(story.collaborators != null){
+    story.collaborators.map((collaborator)=>{
+      collaboratorsList.push(collaborator);
+    })
+  }
+  //si le collaborateur n'est pas dans l'auteur et n'est pas déjà dans la liste
+  if(suggestionAuthor != story.author && !collaboratorsList.includes(suggestionAuthor)){
+    collaboratorsList.push(suggestionAuthor);
+  }
 
   //Insérer le nouveau json
   const { error } = await supabase
   .from("stories")
   .update({
     story: textList,
-    latest_update_time: new Date().toISOString()
+    latest_update_time: new Date().toISOString(),
+    collaborators: collaboratorsList,
   })
   .eq("id", storyId);
+
 
   //Supprimer toutes les propositions existantes
   const { errorDelete } = await supabase

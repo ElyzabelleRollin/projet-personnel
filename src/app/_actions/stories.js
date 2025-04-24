@@ -26,5 +26,6 @@ export const createStoryAction = async (formData) => {
     })
     .select()
     .single();
+    if(newStoryError) console.log(newStoryError);
   redirect(`/stories/${newStory.slug}/read`);
 };

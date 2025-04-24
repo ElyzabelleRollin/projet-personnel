@@ -21,7 +21,7 @@ const Navigation = async () => {
         </li>
         {userConnected && (
           <li className={styles.link}>
-            <a href={`/profiles/${userConnected.id}/`}>Profile</a>
+            <a href={`/profiles/${userConnected.id}/`}>Profil</a>
           </li>
         )}
         <li className={styles.link}>
