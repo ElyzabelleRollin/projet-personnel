@@ -1,9 +1,14 @@
 .pageContainer{
 padding: 2em;
+flex-grow: 1;
+background-image: url("/img/background.jpg");
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
 }
 
 .userInfosContainer{
-    background-color: gray;
+    background-color: #593476;
     display: flex;
     padding: 1em;
     margin: 0 auto;
@@ -15,4 +20,25 @@ padding: 2em;
     height: 150px;
     border-radius: 100%;
     overflow: hidden;
+}
+.vignettesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    gap: 1rem;  
+}
+.userInfos{
+   margin-left: 2rem;
+}
+
+.myStoriesContainer{
+    width: 66%;
+    font-size: 1.5em;
+    margin-bottom: 1.5rem;
+}
+
+.sectionContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 0;
 }

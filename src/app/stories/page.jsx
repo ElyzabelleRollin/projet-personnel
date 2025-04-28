@@ -1,25 +1,21 @@
-//Imports:
 import React from "react";
-import { createClient } from "../_lib/supabase/server";
+import { createClient } from "@/app/_lib/supabase/server";
+import TitleContainer from "@/app/_components/global/titlecontainer";
+import styles from "@/app/_components/stories/helpastorypage.module.css";
+import OnProgressVignette from "@/app/_components/stories/onprogressvignette";
 
-//Page to display all the stories created
 const StoriesPage = async () => {
   const supabase = await createClient();
   const { data: stories, error } = await supabase
     .from("stories")
     .select("*")
     .eq("is_completed", true);
-
   return (
-    <div>
-      <div>Lire les histoires</div>
-      {/* Conteneur de toutes les histoires */}
-      <div>
+    <div className={styles.pageContainer}>
+      <TitleContainer title={"Histoires terminées"} />
+      <div className={styles.vignettesContainer}>
         {stories.map((story) => (
-          <div key={story.slug}>
-            <img src="https://placehold.co/200x300" alt="background" />
-            <p>{story.title}</p>
-          </div>
+          <OnProgressVignette key={story.slug} story={story} />
         ))}
       </div>
     </div>

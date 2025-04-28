@@ -1,12 +1,44 @@
 .nav{
     width: 100%;
-    background-color: rgb(241, 241, 241);
+    background-color: #211536;
     padding: 0.5em;
 }
 .list{
     display: flex;
+    color: var(--background);
 }
 
 .link{
     margin: 1rem;
 }
+.link:last-of-type{
+    margin-left: auto;
+}
+
+.login{
+    display: block;
+    width: min-content;
+    height: 40px;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.login:hover{
+    cursor: pointer;
+    scale: 1.1;
+    transition: all 0.5s;
+}
+
+.avatar{
+    width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 5px;
+        object-fit: cover;
+}
+
+.illustration{
+    height: 25px;
+    margin: 0 auto;
+}
+

@@ -1,6 +1,28 @@
 .titleContainer{
-    width: 30%;
+    width: 45%;
+    /* width: 30%; */
     max-width: 600px;
-    background-color: #A5A5A5;
-    padding: 25% 0 0 ;
+    background-image: url("/img/openBook.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* position: relative; */
+    z-index: -2;
 }
+
+/* .titleContainer::after{
+    z-index: -1;
+    content: "";
+    display: block;
+    height: 871px;
+    width: 1060px;
+    background-image: url("/img/quillAndInc.svg");
+    position: absolute;
+    left: 465px;
+    top: 320px;
+    background-size: 25%;
+    background-repeat: no-repeat;
+} */
