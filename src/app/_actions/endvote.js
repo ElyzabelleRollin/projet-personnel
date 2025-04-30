@@ -96,5 +96,5 @@ export const EndVoteAction = async () => {
       );
     }
   }
-  revalidatePath(`/stories/${storySlug}/read`);
+  revalidatePath(`/stories/${story.slug}/read`);
 };
