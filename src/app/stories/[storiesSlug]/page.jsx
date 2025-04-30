@@ -5,6 +5,7 @@ import H1 from "@/app/_components/global/h1";
 
 const StoryPage = async ({ params }) => {
   const { storiesSlug } = await params;
+
   const supabase = await createClient();
   const { data: story } = await supabase
     .from("stories")
@@ -18,13 +19,6 @@ const StoryPage = async ({ params }) => {
     .eq("story_id", story.id)
     .order("created_at", { ascending: true });
 
-  function CalculateDelais(story) {
-    const currentTime = Date.now();
-    const creationTime = Date.parse(story.latest_update_time);
-    const timeDifference = currentTime - creationTime;
-    return timeDifference;
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.storyInfos}>
@@ -37,9 +31,11 @@ const StoryPage = async ({ params }) => {
         </p>
         <div className={styles.storyContainer}>
           {story.story.map((text) => (
-            <p className={styles.text} key={text}>
-              {text}
-            </p>
+            <div key={text}>
+              <p className={styles.text} key={text}>
+                {text}
+              </p>
+            </div>
           ))}
         </div>
       </div>

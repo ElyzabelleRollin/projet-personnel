@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/app/_components/global/nav.module.css";
 import { createClient } from "@/app/_lib/supabase/server";
+import { logout } from "@/app/_actions/auth";
 
 const Navigation = async () => {
   const supabase = await createClient();
@@ -11,6 +12,15 @@ const Navigation = async () => {
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
+        <li className={styles.link}>
+          <img
+            className={styles.illustration}
+            src="/img/quillColored.svg"
+            alt="quillColered"
+          />
+          <a href="/">Accueil</a>
+        </li>
+
         <li className={styles.link}>
           <img
             className={styles.illustration}
@@ -36,20 +46,25 @@ const Navigation = async () => {
           <a href="/stories/">Lire les histoires</a>
         </li>
         {userConnected ? (
-          <li className={styles.link}>
-            <a
-              className={styles.avatarContainer}
-              href={`/profiles/${userConnected.id}/`}
-            >
-              <img
-                className={styles.avatar}
-                src={userConnected.user_metadata.avatar_url}
-                alt={userConnected.user_metadata.user_name}
-              />
-            </a>
-          </li>
+          <div className={styles.userLink}>
+            <li className={styles.link}>
+              <a
+                className={styles.avatarContainer}
+                href={`/profiles/${userConnected.id}/`}
+              >
+                <img
+                  className={styles.avatar}
+                  src={userConnected.user_metadata.avatar_url}
+                  alt={userConnected.user_metadata.user_name}
+                />
+              </a>
+            </li>
+            <form action={logout}>
+              <button>Déconnexion</button>
+            </form>
+          </div>
         ) : (
-          <li className={styles.link}>
+          <li className={styles.userLink}>
             <a href="/auth/login">
               <svg
                 className={styles.login}

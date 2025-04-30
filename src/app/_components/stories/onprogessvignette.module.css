@@ -18,13 +18,19 @@
     }
 }
 
+.image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 .vignette:hover{
     scale: 1.05;
     transition: scale 0.5s;
 }
 
 .infosContainer{
-    background-color: #3720497e;
+    background-color: #372049d9;
     padding: 1em;
     width: 100%;
     position: absolute;

@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "../_lib/supabase/server";
 import { redirect } from "next/navigation";
+import { generateAndUploadAudio } from "./upload";
 
 export const createNewProposalAction = async (formData) => {
   const proposal = formData.get("proposal");
@@ -28,33 +29,33 @@ export const createNewProposalAction = async (formData) => {
 export const addLikeAction = async (formData) => {
   const proposalId = formData.get("proposalId");
   const storySlug = formData.get("storySlug");
-  
+
   const supabase = await createClient();
   const {
     data: { user: userConnected },
   } = await supabase.auth.getUser();
-  
+
   //Check if the user has already liked the proposal
   const { data: like, error: likeError } = await supabase
-  .from("liked_proposals")
-  .select("*")
-  .eq("proposal_id", proposalId)
-  .eq("user_id", userConnected.id)
-  .single();
-  
+    .from("liked_proposals")
+    .select("*")
+    .eq("proposal_id", proposalId)
+    .eq("user_id", userConnected.id)
+    .single();
+
   //If the user has already liked the proposal, remove the like
   if (like) {
     removeLikeAction(formData);
   } else {
     //If the user has not liked the proposal, add a like
     const { data: newLike, error: newLikeError } = await supabase
-    .from("liked_proposals")
-    .insert({
-      user_id: userConnected.id,
-      proposal_id: proposalId,
-    });
+      .from("liked_proposals")
+      .insert({
+        user_id: userConnected.id,
+        proposal_id: proposalId,
+      });
   }
-  
+
   revalidatePath(`/stories/${storySlug}/read`);
 };
 
@@ -72,7 +73,7 @@ export const removeLikeAction = async (formData) => {
     .eq("proposal_id", proposalId)
     .eq("user_id", userConnected.id)
     .single();
-    if(deletedLikeError) console.log(deletedLikeError);
+  if (deletedLikeError) console.log(deletedLikeError);
 };
 
 export const AcceptPropositionAction = async (formData) => {
@@ -85,47 +86,46 @@ export const AcceptPropositionAction = async (formData) => {
   } = await supabase.auth.getUser();
   //Déterminer à combien de phrase on est rendu:
   const { data: story, error: storyError } = await supabase
-  .from("stories")
-  .select("story, max_parts, collaborators, author")
-  .eq("id", storyId)
-  .single();
-  if(storyError) console.log(storyError);
+    .from("stories")
+    .select("story, max_parts, collaborators, author")
+    .eq("id", storyId)
+    .single();
+  if (storyError) console.log(storyError);
 
   //Ajouter la phrase au json de l'histoire
   var textList = new Array();
-  story.story.map((text)=>{
+  story.story.map((text) => {
     textList.push(text);
-  })
+  });
   textList.push(chosenSuggestionText);
-  
+
   //Ajouter les collaborateurs au json de l'histoire
   var collaboratorsList = new Array();
-  if(story.collaborators != null){
-    story.collaborators.map((collaborator)=>{
+  if (story.collaborators != null) {
+    story.collaborators.map((collaborator) => {
       collaboratorsList.push(collaborator);
-    })
+    });
   }
   //si le collaborateur n'est pas dans l'auteur et n'est pas déjà dans la liste
-  if(suggestionAuthor != story.author && !collaboratorsList.includes(suggestionAuthor)){
+  if (!collaboratorsList.includes(suggestionAuthor)) {
     collaboratorsList.push(suggestionAuthor);
   }
 
   //Insérer le nouveau json
   const { error } = await supabase
-  .from("stories")
-  .update({
-    story: textList,
-    latest_update_time: new Date().toISOString(),
-    collaborators: collaboratorsList,
-  })
-  .eq("id", storyId);
-
+    .from("stories")
+    .update({
+      story: textList,
+      latest_update_time: new Date().toISOString(),
+      collaborators: collaboratorsList,
+    })
+    .eq("id", storyId);
 
   //Supprimer toutes les propositions existantes
   const { errorDelete } = await supabase
-  .from("proposals")
-  .delete()
-  .eq("story_id", storyId);
+    .from("proposals")
+    .delete()
+    .eq("story_id", storyId);
 
   //Vérifier si l'histoire est terminée
   if (textList.length >= story.max_parts) {
@@ -135,30 +135,30 @@ export const AcceptPropositionAction = async (formData) => {
         is_completed: true,
       })
       .eq("id", storyId);
-  
+
     if (error) {
       console.error("Error updating story:", error);
     } else {
       console.log("Story marked as completed:", data);
     }
   }
-  
+  generateAndUploadAudio({ text: story.story.join("\n"), storyId: storyId });
   //Changer de page
   redirect(`/profiles/${userConnected.id}/`);
 };
-
 
 export const RefusePropositionAction = async (formData) => {
   const chosenSuggestionId = formData.get("chosenSuggestionId");
   const storySlug = formData.get("storySlug");
 
   const supabase = await createClient();
-  const { data: deletedProposition, error: deletedPropositionError } = await supabase
-    .from("proposals")
-    .delete()
-    .eq("id", chosenSuggestionId)
-    .single();
-    if(deletedPropositionError) console.log(deletedPropositionError);
+  const { data: deletedProposition, error: deletedPropositionError } =
+    await supabase
+      .from("proposals")
+      .delete()
+      .eq("id", chosenSuggestionId)
+      .single();
+  if (deletedPropositionError) console.log(deletedPropositionError);
 
   revalidatePath(`/stories/${storySlug}/edit`);
 };

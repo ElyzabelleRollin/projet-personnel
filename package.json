@@ -11,13 +11,18 @@
   "dependencies": {
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.4",
+    "@uploadthing/react": "^7.3.0",
+    "dotenv": "^16.5.0",
+    "elevenlabs": "^1.57.0",
     "fs": "^0.0.1-security",
     "next": "15.3.0",
+    "openai": "^4.96.0",
     "promised-sqlite3": "^2.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "server-only": "^0.0.1",
     "sqlite3": "^5.1.7",
+    "uploadthing": "^7.6.0",
     "zod": "^3.24.2",
     "zustand": "^5.0.3"
   },

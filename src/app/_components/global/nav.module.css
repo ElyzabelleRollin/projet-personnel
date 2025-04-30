@@ -10,9 +10,14 @@
 
 .link{
     margin: 1rem;
+    transition: all 0.5s;
 }
-.link:last-of-type{
-    margin-left: auto;
+
+.link:hover{
+    color: var(--secondary1);
+    cursor: pointer;
+    scale: 1.1;
+    transition: all 0.5s;
 }
 
 .login{
@@ -31,10 +36,10 @@
 
 .avatar{
     width: 50px;
-        height: 50px;
-        overflow: hidden;
-        border-radius: 5px;
-        object-fit: cover;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .illustration{
@@ -42,3 +47,11 @@
     margin: 0 auto;
 }
 
+
+.userLink{
+    display: flex;
+    margin: 0 1rem 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

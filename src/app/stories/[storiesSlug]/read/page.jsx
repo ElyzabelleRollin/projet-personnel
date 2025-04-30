@@ -1,3 +1,4 @@
+//Imports:
 import React from "react";
 import { createClient } from "@/app/_lib/supabase/server";
 import { createNewProposalAction } from "@/app/_actions/proposals";
@@ -6,27 +7,49 @@ import Propositions from "@/app/_components/propositions/propositions";
 import Button from "@/app/_components/global/button";
 import H1 from "@/app/_components/global/h1";
 
+//Page to read a story and vote on the propositions:
 const ReadStoryPage = async ({ params }) => {
-  const { storiesSlug } = await params;
-  const supabase = await createClient();
+  const { storiesSlug } = await params; //Get the slug of the story from the url
+  const supabase = await createClient(); //Access Supabase
+
+  //Get the story data from Supabase:
   const { data: story } = await supabase
     .from("stories")
     .select("*")
     .eq("slug", storiesSlug)
     .single();
 
+  //Get the propositions data from Supabase:
   const { data: ideas } = await supabase
     .from("proposals")
     .select("*")
     .eq("story_id", story.id)
     .order("created_at", { ascending: true });
 
-  function CalculateDelais(story) {
-    const currentTime = Date.now();
-    const creationTime = Date.parse(story.latest_update_time);
-    const timeDifference = currentTime - creationTime;
-    return timeDifference;
-  }
+  //Promise.all to get the usernames of the collaborators:
+  const users = await Promise.all(
+    story.collaborators.map(async (collaboratorId) => {
+      //Fetch the usernames from Supabase:
+      const { data: user, error } = await supabase
+        .from("users")
+        .select("username")
+        .eq("id", collaboratorId)
+        .single();
+      //If there is an error or no user, return null:
+      if (error || !user) {
+        console.error(
+          "Erreur de récupération utilisateur pour:",
+          collaboratorId,
+          error
+        );
+        return null;
+      }
+
+      return user.username; //Return the usernames
+    })
+  );
+
+  const collaboratorsNames = users.filter((name) => name !== null); //Filter out null values
 
   return (
     <div className={styles.container}>
@@ -35,7 +58,7 @@ const ReadStoryPage = async ({ params }) => {
         <p>
           <span className={styles.subtitle}>Collaborateurs:</span>{" "}
           <span className={styles.collaboratorsNames}>
-            {story.author} {story.collaborators}
+            {collaboratorsNames.join(", ")}
           </span>
         </p>
         <div className={styles.storyContainer}>
@@ -47,12 +70,6 @@ const ReadStoryPage = async ({ params }) => {
         </div>
       </div>
       <div className={styles.proposalsContainer}>
-        {CalculateDelais(story) > story.voting_duration_minutes * 60 * 1000 && (
-          <>
-            <p className={styles.wait}>En attente d'une décision de l'auteur</p>
-            <div className={styles.over}></div>
-          </>
-        )}
         <div className={styles.proposalsTitle}>Consulter les propositions</div>
         <div className={styles.ideasContainer}>
           {ideas.map((idea) => (
@@ -65,46 +82,29 @@ const ReadStoryPage = async ({ params }) => {
             />
           ))}
         </div>
-        {ideas.length < story.suggestions_limit ? (
-          <form
-            action={createNewProposalAction}
-            className={styles.propositionForm}
-          >
-            <label htmlFor="proposal" className={styles.formTitle}>
-              Proposez votre idée:
-            </label>
-            <textarea
-              type="text"
-              id="proposal"
-              name="proposal"
-              className={styles.textInput}
-              placeholder="Écrivez votre idée..."
-            />
-            <input type="hidden" id="storyId" name="storyId" value={story.id} />
-            <input
-              type="hidden"
-              id="storySlug"
-              name="storySlug"
-              value={storiesSlug}
-            />
-            <Button content={"Envoyer"} />
-          </form>
-        ) : (
-          <form className={styles.propositionForm}>
-            <label htmlFor="proposal" className={styles.formTitle}>
-              La limite des propositions a été atteinte.
-            </label>
-            <textarea
-              type="text"
-              id="proposal"
-              name="proposal"
-              disabled
-              className={styles.textInputDisabled}
-              placeholder="Écrivez votre idée..."
-            />
-            <Button content={"Envoyer"} />
-          </form>
-        )}
+        <form
+          action={createNewProposalAction}
+          className={styles.propositionForm}
+        >
+          <label htmlFor="proposal" className={styles.formTitle}>
+            Proposez votre idée:
+          </label>
+          <textarea
+            type="text"
+            id="proposal"
+            name="proposal"
+            className={styles.textInput}
+            placeholder="Écrivez votre idée..."
+          />
+          <input type="hidden" id="storyId" name="storyId" value={story.id} />
+          <input
+            type="hidden"
+            id="storySlug"
+            name="storySlug"
+            value={storiesSlug}
+          />
+          <Button content={"Envoyer"} />
+        </form>
       </div>
     </div>
   );
