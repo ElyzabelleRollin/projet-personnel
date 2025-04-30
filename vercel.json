@@ -1,7 +1,7 @@
 {
   "functions": {
-    "app/api/endvote/route.js": {
-      "schedule": "0 */15 * * *"
+    "api/endvote.js": {
+      "schedule": "* * * * *"
     }
   }
 }
