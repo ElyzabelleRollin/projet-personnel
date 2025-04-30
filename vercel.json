@@ -1,7 +1,8 @@
 {
-  "functions": {
-    "api/endvote.js": {
+  "crons": [
+    {
+      "path": "/api/endvote",
       "schedule": "* * * * *"
     }
-  }
+  ]
 }

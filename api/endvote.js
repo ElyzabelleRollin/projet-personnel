@@ -1,5 +1,5 @@
 // api/endvote.js
-import { EndVoteAction } from "@/app/_actions/endvote";
+import { EndVoteAction } from "/src/app/_actions/endvote";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
