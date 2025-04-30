@@ -5,8 +5,9 @@ import { createStoryAction } from "@/app/_actions/stories";
 import styles from "@/app/_components/stories/createnewstorypage.module.css";
 import { useState } from "react";
 const createnewstoryform = () => {
-  const [selectedMaxParts, setSelectedMaxParts] = useState(null);
-  const [selectedVotingTimeLimit, setSelectedVotingTimeLimit] = useState(null);
+  const [selectedStoryType, setSelectedStoryType] = useState(null);
+  const [selectedNarrativeType, setSelectedNarrativeType] = useState(null);
+  const [selectedVoice, setSelectedVoice] = useState(null);
   return (
     <form action={createStoryAction} className={styles.formCreateStory}>
       <div className={styles.inputContainer}>
@@ -39,127 +40,237 @@ const createnewstoryform = () => {
       </div>
       <div className={styles.inputContainer}>
         <legend className={styles.label}>
-          Nombre de parties par histoire:
+          Types d'histoire:
         </legend>
         <div className={styles.test}>
           <div
             className={` ${
-              selectedMaxParts === 5 ? styles.optionSelected : styles.option
+              selectedStoryType === "shortStory" ? styles.optionTextSelected : styles.optionText
             } transition-colors`}
           >
             <input
               className={styles.radio}
               required
               type="radio"
-              id="partiesLimitOption1"
-              name="partiesLimit"
-              value={5}
-              onClick={() => setSelectedMaxParts(5)}
+              id="shortStory"
+              name="typeOfStory"
+              value={"shortStory"}
+              onClick={() => setSelectedStoryType("shortStory")}
             />
-            <label className={styles.number} htmlFor="partiesLimitOption1">
-              5
+            <label htmlFor="shortStory" className={styles.text}>
+              Histoire courte
             </label>
           </div>
           <div
             className={` ${
-              selectedMaxParts === 10 ? styles.optionSelected : styles.option
+              selectedStoryType === "longStory" ? styles.optionTextSelected : styles.optionText
             } transition-colors`}
           >
             <input
               className={styles.radio}
               required
               type="radio"
-              id="partiesLimitOption2"
-              name="partiesLimit"
-              value={10}
-              onClick={() => setSelectedMaxParts(10)}
+              id="longStory"
+              name="typeOfStory"
+              value={"longStory"}
+              onClick={() => setSelectedStoryType("longStory")}
             />
-            <label className={styles.numbers} htmlFor="partiesLimitOption2">
-              10
-            </label>
-          </div>
-          <div
-            className={` ${
-              selectedMaxParts === 15 ? styles.optionSelected : styles.option
-            } transition-colors`}
-          >
-            <input
-              className={styles.radio}
-              required
-              type="radio"
-              id="partiesLimitOption3"
-              name="partiesLimit"
-              value={15}
-              onClick={() => setSelectedMaxParts(15)}
-            />
-            <label className={styles.numbers} htmlFor="partiesLimitOption3">
-              15
+            <label htmlFor="longStory" className={styles.text}>
+              Histoire longue
             </label>
           </div>
         </div>
       </div>
-      <div></div>
       <div className={styles.inputContainer}>
-        <legend className={styles.label}>Combien de temps pour voter:</legend>
+        <legend className={styles.label}>
+          Types de récits:
+        </legend>
         <div className={styles.test}>
           <div
             className={` ${
-              selectedVotingTimeLimit === 10
-                ? styles.optionSelected
-                : styles.option
+              selectedNarrativeType === "adventure" ? styles.optionTextSelected : styles.optionText
             } transition-colors`}
           >
             <input
               className={styles.radio}
               required
-              onClick={() => setSelectedVotingTimeLimit(10)}
               type="radio"
-              id="votingTimeLimitOption1"
-              name="votingTimeLimit"
-              value={10}
+              id="adventure"
+              name="narrativeType"
+              value={"adventure"}
+              onClick={() => setSelectedNarrativeType("adventure")}
             />
-            <label className={styles.time} htmlFor="votingTimeLimitOption1">
-              10m
+            <label htmlFor="adventure" className={styles.text}>
+              Aventure
             </label>
           </div>
           <div
             className={` ${
-              selectedVotingTimeLimit === 24
-                ? styles.optionSelected
-                : styles.option
+              selectedNarrativeType === "crime" ? styles.optionTextSelected : styles.optionText
             } transition-colors`}
           >
             <input
               className={styles.radio}
               required
-              onClick={() => setSelectedVotingTimeLimit(24)}
               type="radio"
-              id="votingTimeLimitOption2"
-              name="votingTimeLimit"
-              value={24 * 60}
+              id="crime"
+              name="narrativeType"
+              value={"crime"}
+              onClick={() => setSelectedNarrativeType("crime")}
             />
-            <label className={styles.hours} htmlFor="votingTimeLimitOption2">
-              24h
+            <label htmlFor="crime" className={styles.text}>
+              Policier
             </label>
           </div>
           <div
             className={` ${
-              selectedVotingTimeLimit === 48
-                ? styles.optionSelected
-                : styles.option
+              selectedNarrativeType === "fantasy" ? styles.optionTextSelected : styles.optionText
             } transition-colors`}
           >
             <input
               className={styles.radio}
               required
-              onClick={() => setSelectedVotingTimeLimit(48)}
               type="radio"
-              id="votingTimeLimitOption3"
-              name="votingTimeLimit"
-              value={48 * 60}
+              id="fantasy"
+              name="narrativeType"
+              value={"fantasy"}
+              onClick={() => setSelectedNarrativeType("fantasy")}
             />
-            <label className={styles.hours} htmlFor="votingTimeLimitOption3">
-              48h
+            <label htmlFor="fantasy" className={styles.text}>
+              Fantastique
+            </label>
+          </div>
+          <div
+            className={` ${
+              selectedNarrativeType === "scienceFiction" ? styles.optionTextSelected : styles.optionText
+            } transition-colors`}
+          >
+            <input
+              className={styles.radio}
+              required
+              type="radio"
+              id="scienceFiction"
+              name="narrativeType"
+              value={"scienceFiction"}
+              onClick={() => setSelectedNarrativeType("scienceFiction")}
+            />
+            <label htmlFor="scienceFiction" className={styles.text}>
+            Sci-fi
+            </label>
+          </div>
+          <div
+            className={` ${
+              selectedNarrativeType === "psychological" ? styles.optionTextSelected : styles.optionText
+            } transition-colors`}
+          >
+            <input
+              className={styles.radio}
+              required
+              type="radio"
+              id="psychological"
+              name="narrativeType"
+              value={"psychological"}
+              onClick={() => setSelectedNarrativeType("psychological")}
+            />
+            <label htmlFor="psychological" className={styles.text}>
+              Psychologique
+            </label>
+          </div>
+          <div
+            className={` ${
+              selectedNarrativeType === "romance" ? styles.optionTextSelected : styles.optionText
+            } transition-colors`}
+          >
+            <input
+              className={styles.radio}
+              required
+              type="radio"
+              id="romance"
+              name="narrativeType"
+              value={"romance"}
+              onClick={() => setSelectedNarrativeType("romance")}
+            />
+            <label htmlFor="romance" className={styles.text}>
+              Amour
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className={styles.inputContainer}>
+        <legend className={styles.label}>
+          Types de voix:
+        </legend>
+        <div className={styles.test}>
+          <div
+            className={` ${
+              selectedVoice === "ash" ? styles.optionTextSelected : styles.optionText
+            } transition-colors`}
+          >
+            <input
+              className={styles.radio}
+              required
+              type="radio"
+              id="ash"
+              name="voiceType"
+              value={"ash"}
+              onClick={() => setSelectedVoice("ash")}
+            />
+            <label htmlFor="ash" className={styles.text}>
+              Ash
+            </label>
+          </div>
+          <div
+            className={` ${
+              selectedVoice === "echo" ? styles.optionTextSelected : styles.optionText
+            } transition-colors`}
+          >
+            <input
+              className={styles.radio}
+              required
+              type="radio"
+              id="echo"
+              name="voiceType"
+              value={"echo"}
+              onClick={() => setSelectedVoice("echo")}
+            />
+            <label htmlFor="echo" className={styles.text}>
+              Echo
+            </label>
+          </div>
+          <div
+            className={` ${
+              selectedVoice === "fable" ? styles.optionTextSelected : styles.optionText
+            } transition-colors`}
+          >
+            <input
+              className={styles.radio}
+              required
+              type="radio"
+              id="fable"
+              name="voiceType"
+              value={"fable"}
+              onClick={() => setSelectedVoice("fable")}
+            />
+            <label htmlFor="fable" className={styles.text}>
+              Fable
+            </label>
+          </div>
+          <div
+            className={` ${
+              selectedVoice === "sage" ? styles.optionTextSelected : styles.optionText
+            } transition-colors`}
+          >
+            <input
+              className={styles.radio}
+              required
+              type="radio"
+              id="sage"
+              name="voiceType"
+              value={"sage"}
+              onClick={() => setSelectedVoice("sage")}
+            />
+            <label htmlFor="sage" className={styles.text}>
+              Sage
             </label>
           </div>
         </div>

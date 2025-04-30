@@ -15,6 +15,12 @@ const Propositions = async ({
     .select("*")
     .eq("proposal_id", idea.id);
 
+  const { data: authorName, errorAuthorName } = await supabase
+    .from("users")
+    .select("username")
+    .eq("id", idea.author)
+    .single();
+
   function CalculateDelais(storyLatestUpdate) {
     const currentTime = Date.now();
     const creationTime = Date.parse(storyLatestUpdate);
@@ -24,20 +30,17 @@ const Propositions = async ({
 
   return (
     <div key={idea.id} className={styles.ideas}>
-      {CalculateDelais(storyUpdatedAt) < votingDurationMinutes * 60 * 1000 ? (
         <form className={styles.voteForm} action={addLikeAction}>
           <button>{data.length} 👍</button>
           <input type="hidden" name="proposalId" value={idea.id} />
           <input type="hidden" name="storySlug" value={storySlug} />
         </form>
-      ) : (
-        <p className={styles.voteForm}>{data.length} 👍</p>
-      )}
+      
       <p>{idea.text}</p>
       <div className={styles.infos}>
         <p>
           <span className={styles.writingBy}>Écrit par: </span>
-          {idea.author}
+          {authorName.username}
         </p>
         <p className={styles.date}>{idea.created_at.slice(0, 10)}</p>
       </div>

@@ -2,7 +2,7 @@
 import OpenAI from "openai";
 import { createClient } from "@/app/_lib/supabase/server";
 
-export const generateAndUploadAudio = async ({ text, storyId }) => {
+export const generateAndUploadAudio = async ({ text, storyId, voice, instructions }) => {
   const fileName = `${storyId}.mp3`;
   const openai = new OpenAI();
   const supabase = await createClient();
@@ -10,8 +10,9 @@ export const generateAndUploadAudio = async ({ text, storyId }) => {
   // 1. Generate MP3 using OpenAI
   const mp3 = await openai.audio.speech.create({
     model: "gpt-4o-mini-tts",
-    voice: "nova",
+    voice: voice,
     input: text,
+    instructions: instructions,
   });
 
   const buffer = Buffer.from(await mp3.arrayBuffer());

@@ -77,13 +77,16 @@ export const removeLikeAction = async (formData) => {
 };
 
 export const AcceptPropositionAction = async (formData) => {
+
   const chosenSuggestionText = formData.get("chosenSuggestionText");
   const suggestionAuthor = formData.get("suggestionAuthor");
   const storyId = formData.get("storyId");
   const supabase = await createClient();
+
   const {
     data: { user: userConnected },
   } = await supabase.auth.getUser();
+
   //Déterminer à combien de phrase on est rendu:
   const { data: story, error: storyError } = await supabase
     .from("stories")
