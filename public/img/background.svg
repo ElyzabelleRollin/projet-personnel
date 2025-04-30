@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="1941" height="1113.47" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1941 1113.47">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fef9f4;
+      }
+
+      .cls-2 {
+        fill: #f9e2c6;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4 {
+        fill: #fbeddc;
+      }
+    </style>
+    <symbol id="_1864327640400_-958203520_48_" data-name="1864327640400 -958203520 48" viewBox="0 0 77 77">
+      <g>
+        <circle class="cls-4" cx="38.94" cy="38.17" r="2.05"/>
+        <image width="77" height="77" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABOCAYAAACOqiAdAAAACXBIWXMAAAsSAAALEgHS3X78AAADg0lEQVR4nO2cwU7cMBCG/6Q8wL4LcKDiQiX2sOq1r8JD9FV6rTiABJdVOdB9Fx6AbnpgJzVp7GTGM5Ns8CchIWXjOF/GTuKMDRQKhUKhUCgUjpFq6go8X12w63D++NRY1IWDuziJqCGmEOkmLibs9O6SVc5uvY1u8xRoLq4rLBRVnXwXl9u83gDoF+kh0Excn7AcUSma15v/BJ4/PgGAmUATcaE0S2FdIgJN5KmLm0paSFeghTw1cXMQFtIjD1Bsuiri5iYtJBSoKS9b3JylERbyssQdgzRCW16tUKfZSwPenhnpGfL56iK7PLE4irZjkEaE9cx99RPtbCXtz88f0fp8+vpNpVPXelRhiwuv1NnDL8kx35GSFSNXYqe/8xWXG20SYV1yBObKY/Vxc5KWW05uf3eSe1AOQydab1bRbfvbl2iZ0sg7vbtMDlOlGG06N9pS0khYVV9H92/29wDiAqXyfn/53P7PabLsxxFNafVmhXqzQlVfJ6UBaH9D+4w9xhDcgVRilLgw2rQYE2V90O815UlQeXNI0XcyUmmEprzOG8XofU3FWUgjUvI8YInLfUvQkkbEyvFosoPipP1brPJa0sLycqNOEhDmfVx7oMPd07L8EG7Ucfs5N3GWWF6QGCbiulfbOtrC43ixiIgD/KNuMeK8KeKEFHFCijghixHX7O+jQ04WmIjrjo3tb1/a8bSlsIiI04g27kjwaHHSIWbCO+o4I8KUpAiMHwUeFCf9fBaruLY8776NYDXV8MpIoBPUkheTpvXxOoVpH9d3AlrytCKtL4tzDCxxkgNYyEtJy4k29a9cYYGS5hqTRzeMsQLptxbSuLC/qwLynJHUZ8K2Qj2jHEPfVAGZtJw0iNFNNTfqgPjJUfQB/6Iq/Au3c8q1hDW8rJWppPkxRSrNNelGI+qAt5PNjZKcMqR30hDJla8oFVQrsZATgRrNUpovEiLJVmpwEL5bb3H2IDnsezz7KMnrVR+iB2CtJuuNRhMlVNL1jyGBWnuaUtYr12G+AHbr7awjz2Jul8ZjgfrNQhOrCXFaz1NVOOliLgItZxFqZvXMRp7HvNXFzVf1muxrPkMa8BHYN0ffcm6+aQJebCEDLYnhndxrSjnhvgoEkLcSREoW4LeExuTrjgDjsz3nsuYIMNESQZqr3Uy1XNDkaysBPJFzWFepUCgUCoVCoVD4cPwFHHZC9ouJKCYAAAAASUVORK5CYII="/>
+      </g>
+    </symbol>
+    <symbol id="_1864327640400_-958203520_99_" data-name="1864327640400 -958203520 99" viewBox="0 0 77 77">
+      <g>
+        <circle class="cls-1" cx="38.94" cy="38.17" r="2.05"/>
+        <use xlink:href="#image"/>
+      </g>
+    </symbol>
+    <symbol id="_1864327640400_-958203776_99_" data-name="1864327640400 -958203776 99" viewBox="0 0 77 77">
+      <g>
+        <circle class="cls-1" cx="38.94" cy="38.17" r="2.05"/>
+        <use xlink:href="#image"/>
+      </g>
+    </symbol>
+    <symbol id="Star" viewBox="0 0 85 90">
+      <g>
+        <path class="cls-2" d="M48.7,44.06c-.76.13-1.92.64-3.82,2.69-1.61,1.75-2.06,6.26-2.2,7.05-.14-.82-.57-5.21-2.04-6.89-1.92-2.19-2.98-2.72-3.74-2.85.83-.18,1.98-.83,3.9-3.18,1.25-1.53,1.7-3.1,1.87-3.97.15.85.56,2.44,1.79,3.97,1.94,2.42,3.44,3.03,4.22,3.18Z"/>
+        <image width="85" height="90" xlink:href="data:image/png;base64,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"/>
+      </g>
+    </symbol>
+    <symbol id="Star_dots" viewBox="0 0 77 77">
+      <g>
+        <circle class="cls-2" cx="38.94" cy="38.17" r="2.05"/>
+        <image width="77" height="77" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABOCAYAAACOqiAdAAAACXBIWXMAAAsSAAALEgHS3X78AAAC/UlEQVR4nO2a25qrIAxGw35xP5/cfYNW5CBJ/kTbybpQO1NCXE2pCkRBEARBEATBN5KeTmAT5JCINotcmDn4IhF1xxMi3cR1hXFPeZCxp0BzcZWwrfuCSSp2l/+YCzQT1xZmdT6pOpN06tWoRzyFNFNhV5oCTTqHi3tO2plSoIU8mLh3CDtTySMCJgUR9z5pZ9L1dwSSnFrcu6Xt4OWpxH2HtB2svH/adD4pvFkaEdF2pIjIVCzuqLavkLaznY9U3zZRYzNp69rPZ1lAHWEuVdjiynENcC4jWT3UEovxzlmcttokwq6oBOrksca4V0lTx9GNd6wGH3FCaXcnuozajtpJK09eddPi1NU2HPirg1aAYlfHEMpLn7Q48gTigNKmhFXBil0ZTyJPVnVTY1xZbSBE0k7vbzVDjZ0TYO4cRrRORizt0g4ir7ijmG5rK85E2qW9NowQpjjldxUm7SaOw1f2Vpx4fOsmjy6RBRCSXxD2Y9zOcmwM45/gVh1znPMTZ4r/QGcj7vppW1db0Y8PP1JxRN5V90PifAlxQkKckBAn5IfEreNndmBsxF0f76zH5mf4kYoDVBvz7nZenPa22bvqWA81+U+Bb8WJl0h1E0fL8x3bdphfVWXZrdWBko402OR1H9sxrnUCMHmoSqtXcc7AEycpOBN5A2mKajOe5To2PCAzXRZThLJZLr44IvyE9NJ9sTcsdu0YftLy++eBLIGYmpi+trmJ+eaZfCLgSiXkZMoD0nIbHtC1cRqBoJVK+ZW9OCJKRy+ohYUcgYhrNOF6kSKEpBF8caEr+kWFRMIL4LJDt+UaAGQXu51Icr5rAbV+XDujuuVKxcGbKw8rLcdQg/+xgIKXluNASEU2rxFoIy3HgvEiefWPAFJajoelvFQ5No7YS8sx8VQrflwEpmKXD806Nf0pbAssDpSk5mF+afpJmV9DNNeb1YMhg76s/CeXscHt4mu4YG/2VAfZegk79ecPZ3X3Hd7CTv0+D0fkU6KCIAiCIAiC4E/zH+WK/9sQHdP1AAAAAElFTkSuQmCC"/>
+      </g>
+    </symbol>
+    <linearGradient id="linear-gradient" x1="21" y1="556.54" x2="1941" y2="556.54" gradientUnits="userSpaceOnUse">
+      <stop offset=".19" stop-color="#1e1331"/>
+      <stop offset=".39" stop-color="#251737"/>
+      <stop offset=".69" stop-color="#392349"/>
+      <stop offset=".98" stop-color="#553362"/>
+    </linearGradient>
+    <image id="image" width="77" height="77" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABOCAYAAACOqiAdAAAACXBIWXMAAAsSAAALEgHS3X78AAADcElEQVR4nO2cvW7bMBCAT4GLTB065AG69dGKZuqSNkBHA2mzeErhR8uWB8iQIZMRI86QXHFlSYq8P8nqfYCAALFO5KcjKUEkAYIgCIIgCIJjZJi6ADdXF91lOL+8PliUpQd3cRxRY0wh0k1cSdjnrz+64mw36+L/PAWai0uFUVEnp+/ZcZ93jwCQF+kh0ExcTphEVI3n3eM/As8vrwEAzASaiKPSLIWlFASayFMXN5U0SirQQp6auDkIo2TkASg2XRVxc5NGoQI15YnFzVkaYiFPJO4YpCHa8k4UyjR7aQCvz4z4DHlzdSGPxz0Rs+0YpCG0nNJXP9bJVtKe7m+L5Xl39kmlU9d6VOnOOHqnNKQ93d8OeGj8bgzaZEVxuCdKLy6RIBWY9HesOF3itJqoNGs04kj7O1bGcaWNZcrqw8fiUYvJKgzIWk2zOJptHFqEDavT4lETyJUnybrujONkW6liqbAaYwK58riJ0CROmm05sPJjwlLw95ryOKi8OdTIVYYrDdGUxx1hTcVZSENq8jzoEid94NWShpTieDTZUXHc/q1UeC1pNJ406zgJYd7HITh6Wsan9GZdbz/nJs4SyxtSwkRcerets41ex4tFZByAf9YtRpw3IY5JiGMS4pgsRtxhv4P9w53b9UzEpR9W9g93cNjvLC41GYvIOI1sq01YzNEsrjdwinfW9XxOxEmKAO2fC0fFcb87lgquLc+7b0O6miq9MxywglryStK0Pl7XMO3jchXQkqeVablZnC10ieNcwEJeTZok23q6pSZxNCCnuZbk4YDRKhB/ayGtl+6myh1dS5Wi2VcSSIVpSkvmzHWd3yxOmnUAdXmpQHrUhNXiWsIaHCTPdLVKoqD04MarIck2gE5xGlkH8FpZaZZIYnBHUgrnM9qAU0G1Jhb2fFjRaJa/f3778zf3AX/FOOcAb8K3mzV8+f6Lc92/8OyjOK9XOVh9nFaT9UajiSIq0/WPYQK19jIl0SvX23oB2G7Ws848i7VdGnMs1AcLTawWxGlNThnooou5CLRcRag5q2c28jzWrS5uvarXYl/zFdIAPgJza/Qt1+abTsArbWSgJZGO5F5LyhH3XSAAZDtB1GQB+G2hMfm+IwDtsz3nsucIwERbBGnudjPVdkGT760E0CdyDvsqBUEQBEEQBMF/xwsQ3FwlWCOidAAAAABJRU5ErkJggg=="/>
+  </defs>
+  <g id="Layer_7" data-name="Layer 7">
+    <rect class="cls-3" x="21" y="12.47" width="1920" height="1088.15"/>
+  </g>
+  <g id="Layer_6" data-name="Layer 6">
+    <g>
+      <use width="85" height="90" transform="translate(1648.36 103.26) scale(1.1)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(22.86 327.67) scale(1.81)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(925.09 214.34) scale(1.28)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(905.62 642.71) scale(1.3)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(120.43 983.49) scale(1.46)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(386.62 -1.39) scale(1.71)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(538.03 21.63) scale(2.43)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(674.89 792.2) scale(1.14)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1367.75 714.68) scale(1.2)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1724.45 443.97) scale(1.48)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1367.68 416.85) scale(2.3)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(147.53 376.09) scale(2.97)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(382.71 786.94) scale(2.65)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1309.07 978.88) scale(1.07)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(948.17 718.93) scale(3.35)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1261.61 421.71) scale(1.08)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1215.38 31.23) scale(3.32)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(510.16 387.52) scale(1.52)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1027.82 509.07) scale(1.11)" xlink:href="#Star"/>
+      <use width="85" height="90" transform="translate(1544.19 784) scale(1.39)" xlink:href="#Star"/>
+    </g>
+  </g>
+  <g id="Layer_13" data-name="Layer 13">
+    <g>
+      <use width="77" height="77" transform="translate(375.85 289.5) scale(1.23)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(62.98 290.78) scale(1.03)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(54.6 326.5)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(-35.97 52.53) scale(1.97)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(447.46 101.98)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(234.34 233.03) scale(1.06)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(663.32 325.91) scale(1.23)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(668.13 683.45) scale(1.44)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(.9 954.12)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(720.48 186.47)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(299.35 283.21) scale(1.25)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(422.1 859.32) scale(1.14)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(787.43 794.2) scale(2.09)" xlink:href="#_1864327640400_-958203520_48_"/>
+      <use width="77" height="77" transform="translate(619.94 961.09) scale(1.21)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(237.55 933.85) scale(1.35)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(156.67 779.77)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(309.59 474.87)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(12.13 739.18)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1.75 776.05)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1028.3 763.73) scale(1.41)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1653.74 348.37) scale(1.11)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1447.26 546.35) scale(1.2)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1570.64 928.37) scale(1.51)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1615.71 1016.61) scale(1.5)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1094.89 741.92) scale(3)" xlink:href="#_1864327640400_-958203776_99_"/>
+      <use width="77" height="77" transform="translate(1352.48 528.54) scale(1.37)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1526.8 416.8) scale(1.85)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1676.05 377.25) scale(1.53)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1335.92 40.09)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(875.5)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(918.42 126.39)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1221.21 378.34) scale(1.09)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1274.38 460.22) scale(1.09)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1299.54 123.21)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1773.44 132.71) scale(1.09)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1771.99 254.99) scale(1.25)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1787.7 287.52) scale(2.18)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(820.5 221.11) scale(1.11)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(694.16 357.14) scale(1.36)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(879.48 698.55) scale(1.27)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1741.74 783.09)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1774.8 778.76)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1851.5 924.48) scale(1.06)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1784.42 953.04) scale(1.27)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(940.42 477.19)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(799.92 587.44) scale(1.06)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(794.82 916.78) scale(1.15)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(977.44 1006.13) scale(1.01)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(345.88 505.56) scale(3.1)" xlink:href="#Star_dots"/>
+      <use width="77" height="77" transform="translate(1079.33 138.18) scale(2.63)" xlink:href="#_1864327640400_-958203520_99_"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&family=Rochester&display=swap');
+
+.title{
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Carattere", cursive;
+        @media only screen and (min-width: 992px) {
+                font-size: 2em;
+        }
+        @media only screen and (min-width: 1200px) {
+                font-size: 4em;
+    }
+}
+
+.titleContained{
+    max-width: 359px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Carattere", cursive;
+    margin-left: 2.5rem;
+    /* color: var(--background); */
+    color: var(--foreground);
+    /* font-family: "Rochester", cursive; */
+
+    @media only screen and (min-width: 992px) {
+        font-size: 2em;
+    }
+    
+    @media only screen and (min-width: 1200px){
+        font-size: 4em;
+    }
+}

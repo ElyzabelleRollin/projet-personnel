@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&family=Rochester&display=swap');
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    background-image: url("/img/background.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.title{
+    color: var(--primary2);
+    font-style: italic;
+        font-weight: bold;
+        font-family: "Carattere", cursive;
+    
+        @media only screen and (min-width: 992px) {
+            font-size: 2em;
+        }
+    
+        @media only screen and (min-width: 1200px) {
+            font-size: 4em;
+        }
+}

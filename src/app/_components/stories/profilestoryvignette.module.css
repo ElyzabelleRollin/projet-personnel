@@ -1,0 +1,50 @@
+.vignette{
+    background-color: #5934767f;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media screen and (min-width: 992px) {
+        height: 350px;
+        width: 350px;
+    }
+    @media screen and (min-width: 1200px) {
+        height: 250px;
+        width: 250px;
+    }
+    @media screen and (min-width: 1600px) {
+        height: 350px;
+        width: 350px;
+    }
+}
+
+.storyTitle{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.2em;
+    font-family: "Carattere", cursive;
+    text-align: center;
+}
+
+.collaborateurs{
+font-weight: bold;
+color: lightgray;
+}
+
+.link{
+    color: var(--primary2);
+    padding: 0.5em;
+    border-radius: 20px;
+    /* margin: 0.5rem; */
+    transition: all 0.5s;
+    font-size: 0.75em;
+}
+
+.link:hover{
+    background-color: var(--primary2Dark);
+    scale: 1.1;
+    transition: all 0.5s;
+}

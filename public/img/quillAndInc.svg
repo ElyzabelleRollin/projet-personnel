@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="871.22" height="1059.99" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 871.22 1059.99">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #654c8e;
+      }
+
+      .cls-2 {
+        fill: #3a2b51;
+      }
+
+      .cls-3 {
+        fill: #3e3059;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        fill: #4e3a6d;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="176.92" y1="311.96" x2="862.55" y2="342.32" gradientUnits="userSpaceOnUse">
+      <stop offset=".19" stop-color="#fef1e2"/>
+      <stop offset=".29" stop-color="#f7e9de"/>
+      <stop offset=".43" stop-color="#e5d4d6"/>
+      <stop offset=".6" stop-color="#c7b3c8"/>
+      <stop offset=".8" stop-color="#9e84b4"/>
+      <stop offset=".98" stop-color="#7253a0"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_9" data-name="Layer 9">
+    <polygon class="cls-1" points="0 754.98 0 989.52 284.94 1059.99 284.94 822.38 0 754.98"/>
+    <polygon class="cls-2" points="284.94 822.38 537.7 730.32 537.7 957.19 284.94 1059.99 284.94 822.38"/>
+    <polygon class="cls-5" points="0 754.98 284.94 822.38 537.7 730.32 268.85 678.37 0 754.98"/>
+    <ellipse cx="268.85" cy="660.52" rx="100.34" ry="36.25"/>
+    <path class="cls-4" d="M266.35,647.13s-67.99-34.39-76.67-69.18l26.15,9.69s-47.94-71.64-47.31-85.92l31.2,34.09s-19.74-62.21-1.29-155.44l35.27,34.53s-57.55-131.61,151.1-318.65l-4.18,94.3S434.26,41.2,611.91,0l-50.51,32.52s151.94-60.74,309.82,113.9c0,0-48.75-53.27-245.41,1.4l31.88,18.72s-69.32,87.98-165.99,147.08l67.79-7.22s-117.96,170.61-189.42,214.47l63.35.76s-65.94,57.7-98.87,62.73l34.22,12.1s-52.82,38.55-102.43,50.67Z"/>
+    <g>
+      <path class="cls-3" d="M558.52,138.47c4.17-2.7,8.39-5.39,12.66-8.07,0,0-4.61,2.69-12.66,8.07Z"/>
+      <path class="cls-3" d="M249.03,688.77h29.94c-15.98-331.7,221.47-511.44,279.54-550.3-279.97,181.29-320.62,403.78-309.48,550.3Z"/>
+    </g>
+    <path class="cls-1" d="M168.51,747.41s9.19,41.36,100.34,39.83,100.34-39.83,100.34-39.83v-86.89s-17.62,22.98-96.51,24.51c-78.89,1.53-104.17-24.51-104.17-24.51v86.89Z"/>
+  </g>
+</svg>

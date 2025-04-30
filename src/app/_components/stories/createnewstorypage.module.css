@@ -1,0 +1,128 @@
+.pageContainer{
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    background-image: url("/img/background.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    /* background-size: cover; */
+    z-index: 500;
+}
+
+.formContainer{
+    width: 600px;
+    margin: auto;
+}
+
+.formCreateStory{
+display: flex;
+flex-direction: column;
+}
+
+.label{
+    color: var(--background);
+    margin: 0.3rem 0;
+        @media only screen and (min-width: 992px) {
+                font-size: 1em;
+            }
+        
+            @media only screen and (min-width: 1200px) {
+                font-size: 1.2em;
+            }
+            @media only screen and (min-width: 1600px) {
+                font-size: 1.8em;
+            }
+}
+
+
+
+.textInput{
+    border: 0.5px solid var(--lightGray);
+    background-color: var(--background);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.optionText{
+    color: var(--primary2);
+    border: 0.5px solid #fce8cb47;
+    background-color: var(--primary1);
+    width: max-content;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0em 0.5em;
+    transition: all 0.5s;
+}
+.optionTextSelected{
+    color: var(--primary2);
+    border: 0.5px solid #fce8cb;
+    background-color: var(--primary1Dark);
+    width: max-content;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0em 0.5em;
+    transition: all 0.5s;
+}
+
+.option{
+    color: var(--primary2);
+    border: 0.5px solid #fce8cb47;
+    background-color: var(--primary1);
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    /* padding: 0.5em 1em; */
+    transition: all 0.5s;
+}
+
+.optionSelected{
+    transition: all 0.5s;
+    border: 0.5px solid #fce8cb;
+    color: var(--primary2);
+    background-color: var(--primary1Dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    /* padding: 0.5em 1em; */
+}
+
+.radio{
+    display: none;
+}
+
+.number{
+    position: relative;
+    left: 1rem;
+    top: 0.5rem;
+}
+.numbers{
+    position: relative;
+    left: 0.7rem;
+    top: 0.5rem;
+}
+.time{
+    position: relative;
+    left: 0.2rem;
+    top: 0.5rem;
+}
+.hours{
+    position: relative;
+    left: 0.4rem;
+    top: 0.5rem;
+}
+
+.text{
+    position: relative;
+    top: 0.5rem;
+}
+
+.test{
+    display: flex;
+    gap: 0.5em;
+}
