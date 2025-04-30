@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "../_lib/supabase/server";
 
 export const EndVoteAction = async () => {
-  console.log("endvote");
+  console.log("[END VOTE]");
   const supabase = await createClient();
   // Fetch the data of the stories that need to end votes
   const { data: storiesToUpdate, error: fetchError } = await supabase
@@ -16,7 +16,6 @@ export const EndVoteAction = async () => {
   if (!storiesToUpdate || storiesToUpdate.length === 0) {
     return console.log("No stories to update");
   }
-  console.log(storiesToUpdate);
 
   // For each story to update:
   for (const story of storiesToUpdate) {
@@ -37,7 +36,6 @@ export const EndVoteAction = async () => {
       }
       continue; // Skip if no proposals or an error occurred
     }
-    console.log("[AFTER PROPOSALS]");
 
     // Add the chosen proposal's text to the story and ensure no duplicate collaborators:
     const updatedStoryText = Array.isArray(story.story) //Check if story.story is an array

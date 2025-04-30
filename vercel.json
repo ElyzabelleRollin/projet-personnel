@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "app/api/endvote/route.js": {
+      "schedule": "0 */15 * * *"
+    }
+  }
+}
