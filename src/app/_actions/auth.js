@@ -10,6 +10,14 @@ export const oauthSigninAction = async () => {
   const headersAsync = await headers();
   const origin = headersAsync.get("origin");
 
+  const getURL = () => {
+    let url = process?.env?.NEXT_PUBLIC_SITE_URL ?? `http://localhost:3000/`;
+    url = url.startsWith("http") ? url : `https://${url}`;
+    // Make sure to include a trailing `/`.
+    url = url.endsWith("/") ? url : `${url}/`;
+    return url;
+  };
+
   // on récupère ici l'url vers lequel envoyer l'utilisateur sur github. il n'est pas encore redirigé
   const { error, data } = await supabase.auth.signInWithOAuth({
     provider: "github",
@@ -18,14 +26,6 @@ export const oauthSigninAction = async () => {
       redirectTo: `${getURL()}auth/callback`,
     },
   });
-
-  const getURL = () => {
-    let url = process?.env?.NEXT_PUBLIC_SITE_URL ?? `http://localhost:3000/`;
-    url = url.startsWith("http") ? url : `https://${url}`;
-    // Make sure to include a trailing `/`.
-    url = url.endsWith("/") ? url : `${url}/`;
-    return url;
-  };
 
   if (error) {
     console.log("[AUTH LOGIN ERROR]", err);
