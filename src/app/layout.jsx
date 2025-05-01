@@ -1,4 +1,4 @@
-import { Averia_Libre, Varela_Round } from "next/font/google";
+import { Averia_Libre, Carattere } from "next/font/google";
 import "./globals.css";
 import Navigation from "./_components/global/navigation";
 
@@ -7,12 +7,13 @@ const averiaLibre = Averia_Libre({
   variable: "--font-averia-libre",
   subsets: ["latin"],
 });
-
-const varelaRound = Varela_Round({
+const carattere = Carattere({
   weight: ["400"],
-  variable: "--font-varela-round",
+  variable: "--font-carattere",
   subsets: ["latin"],
 });
+
+
 
 export const metadata = {
   title: "Plume partagée",
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${averiaLibre.variable} ${varelaRound.variable} antialiased`}
+        className={`${averiaLibre.variable} ${carattere.variable} antialiased`}
       >
         <Navigation />
         {children}
