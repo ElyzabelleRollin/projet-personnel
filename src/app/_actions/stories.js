@@ -53,8 +53,8 @@ export const createStoryAction = async (formData) => {
   if (newStoryError) console.log("[CREATE STORY ERROR]", newStoryError); //If there is an error
   try {
     await CreateStoryImage({ text: firstParagraph, storyId: newStory.id }); // Crée l'image
-    redirect(`/stories/${newStory.slug}/read`); // Redirige ensuite
   } catch (error) {
     console.error("Erreur lors de la création de l'image :", error);
   }
+  redirect(`/stories/${newStory.slug}/read`); // Redirige ensuite
 };
