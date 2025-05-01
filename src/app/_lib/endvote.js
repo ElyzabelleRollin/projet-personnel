@@ -68,7 +68,7 @@ export async function runEndVote() {
           text: updatedStoryText.join("\n"),
           storyId: story.id,
           voice: story.voice,
-          // instructions: story.tone_of_voice,
+          instructions: story.tone_of_voice,
         });
       } catch (error) {
         console.error(
