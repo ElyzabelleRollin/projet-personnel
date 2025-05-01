@@ -16,7 +16,7 @@ export async function generateAndUploadAudio ({ text, storyId, voice, instructio
   const mp3 = await openai.audio.speech.create({
     model: 'gpt-4o-mini-tts',
     voice: voice,
-    text,
+    input: text,
     // instructions,
   });
 
