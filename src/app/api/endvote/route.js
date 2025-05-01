@@ -1,8 +1,6 @@
-// app/api/endvote/route.js
+import { runEndVote } from "@/app/_lib/endvote";
 
 export async function GET(request) {
-  // Exemple : exécuter une action serveur ici
-  console.log("Vote terminé !");
-
+  await runEndVote();
   return new Response("Vote terminé !", { status: 200 });
 }

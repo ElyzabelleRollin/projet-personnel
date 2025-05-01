@@ -6,7 +6,6 @@ import styles from "@/app/_components/stories/readstories.module.css";
 import Propositions from "@/app/_components/propositions/propositions";
 import Button from "@/app/_components/global/button";
 import H1 from "@/app/_components/global/h1";
-import { EndVoteAction } from "@/app/_actions/endvote";
 
 //Page to read a story and vote on the propositions:
 const ReadStoryPage = async ({ params }) => {
@@ -51,8 +50,6 @@ const ReadStoryPage = async ({ params }) => {
   );
 
   const collaboratorsNames = users.filter((name) => name !== null); //Filter out null values
-
-  // setInterval(EndVoteAction, 30000);
 
   return (
     <div className={styles.container}>
