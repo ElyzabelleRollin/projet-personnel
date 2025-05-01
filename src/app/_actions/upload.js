@@ -10,9 +10,9 @@ export const generateAndUploadAudio = async ({ text, storyId, voice, instruction
   // 1. Generate MP3 using OpenAI
   const mp3 = await openai.audio.speech.create({
     model: "gpt-4o-mini-tts",
-    voice: voice,
+    voice: "alloy",
     input: text,
-    instructions: instructions,
+    // instructions: instructions,
   });
 
   const buffer = Buffer.from(await mp3.arrayBuffer());

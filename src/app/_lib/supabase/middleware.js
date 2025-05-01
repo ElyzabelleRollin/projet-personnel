@@ -38,9 +38,12 @@ export async function updateSession(request) {
     data: { user },
   } = await supabase.auth.getUser();
 
+
+
   // s'il n'est pas connecté et ne se diriger pas vers /login ou /auth
   // il est redirigé vers la page login (à ajuster)
   if (
+    !checkIfCronJob({user, request}) &&
     !user &&
     !request.nextUrl.pathname.startsWith("/login") &&
     !request.nextUrl.pathname.startsWith("/auth")
@@ -52,3 +55,7 @@ export async function updateSession(request) {
   }
   return supabaseResponse;
 }
+
+const checkIfCronJob = ({user, request}) => {
+  return !user && request.nextUrl.pathname.startsWith("/api/endvote") && request.headers.get('authorization') === `Bearer ${process.env.CRON_SECRET}`;
+};
