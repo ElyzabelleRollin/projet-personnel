@@ -1,6 +1,5 @@
-// lib/endvote.js
-import { createClient } from "../app/_lib/supabase/server";
-import { generateAndUploadAudio } from "./generateAndUploadAudio"; // Ajuste selon l'emplacement
+import { createClient } from "@/app/_lib/supabase/server";
+import { generateAndUploadAudio } from "@/app/_actions/upload";
 
 export async function runEndVote() {
   console.log("[END VOTE]");
