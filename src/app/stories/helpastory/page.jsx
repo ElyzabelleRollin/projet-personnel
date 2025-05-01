@@ -15,7 +15,7 @@ const Helpastory = async () => {
       <TitleContainer title={"Histoires en attente d'aide"} />
       <div className={styles.vignettesContainer}>
         {stories.map((story) => (
-          <OnProgressVignette key={story.slug} story={story} />
+          <OnProgressVignette key={story.id} story={story} />
         ))}
       </div>
     </div>

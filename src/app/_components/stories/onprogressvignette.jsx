@@ -39,9 +39,6 @@ const OnProgressVignette = ({ story }) => {
         <img src={story.image_url} alt={story.title} className={styles.image} />
         <div className={styles.infosContainer}>
           <p className={styles.storyTitle}>{story.title}</p>
-          <p>
-            <span className={styles.collaborateurs}>Collaborateurs:</span> {}
-          </p>
         </div>
       </div>
     </div>
@@ -53,9 +50,6 @@ const OnProgressVignette = ({ story }) => {
         <img src={story.image_url} alt={story.title} className={styles.image} />
         <div className={styles.infosContainer}>
           <p className={styles.storyTitle}>{story.title}</p>
-          <p>
-            <span className={styles.collaborateurs}>Collaborateurs:</span> {}
-          </p>
         </div>
       </div>
     </a>

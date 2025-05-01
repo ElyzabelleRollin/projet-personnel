@@ -1,110 +1,73 @@
 .container{
-    display: flex;
-    flex-grow: 1;
-    padding: 0 2em;
-    background-image: url("/img/paperTexture.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    filter: brightness(1.2) saturate(0.8);
+  flex-grow: 1;
+  display: flex;
+  background: linear-gradient(to top, #ad8057cd, var(--primary2));
 }
 
 .storyInfos{
-  padding: 2em;
-  max-width: 66%;
+
+      padding: 3em;
 }
 
-.proposalsContainer{
-  height: 100%;
-  max-height: 87vh;
+.subtitle{
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.collaboratorsNames{
+ color: var(--primary2Dark);
+}
+
+.text{
+  margin-top: 2rem;
+ }
+
+ .proposalsContainer {
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: var(--secondary1);
-  width: 600px; 
-  margin-left: auto;
+  flex-grow: 1;
+  background-color: #ad80576b;
+  border-radius: 10px;
+  margin: 1em;
+ }
 
-}
-
-.ideasContainer{
-    padding: 1em;
+ .ideasContainer {
+    padding: 0 1em;
     overflow-y: auto;
     flex-grow: 1;
-  }
+    max-height: 48vh;
+ }
 
- .proposalsTitle{
-    background-color: var(--primary1);
+ .proposalsTitle {
     padding: 1em;
     font-size: 1.5em;
     text-align: center;
     font-weight: bold;
-    color: white;
  }
 
-  .propositionForm{
-  background-color: var(--primary1);
+ .propositionForm {
   display: flex;
   flex-direction: column;
   padding: 1em;
- }  
-.textInput{
-    background-color: #fff;
-    height: 100px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ }
+
+ .textInput {
+   background-color: #fff;
+    height: 50px;
     border-radius: 5px;
     padding: 0.5em;
-  }
-  .textInputDisabled{
-    background-color:  #fff;
-    opacity: 0.5;
-    height: 100px;
-    border-radius: 5px;
-    padding: 0.5em;
+    border: 1px solid var(--primary2Dark);
  }
 
- .formTitle{
-  font-size: 1.2em;
+ .formTitle {
+   font-size: 1.2em;
   font-weight: bold;
-  color: white;
-  margin-bottom: 0.5rem;
+  color: var(--primary2);
+  margin: 1rem 0;
  }
 
- .subtitle{
-  font-weight: bold;
-  font-size: 1.5em;
- }
-
- .text{
-  max-width: 80%;
-  margin: 2em 0;
- }
-
- .storyContainer{
-  margin-top: 3rem;
- }
-
- .collaboratorsNames{
-  color: gray;
- }
-
- .over{
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--primary1);
-  opacity: 0.9;
-  z-index: 400;
-}
-
-
-.wait{ 
-  width: 100%;
-  position: absolute;
-  top: 45%;
-  text-align: center;
-  font-size: 3em;
-  color: #fff;
-  z-index: 500;
-  font-style: italic;
-  font-weight: bold;
- }

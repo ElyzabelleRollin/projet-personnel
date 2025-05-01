@@ -2,7 +2,7 @@
 import React from "react";
 import Button from "@/app/_components/global/button";
 import { createStoryAction } from "@/app/_actions/stories";
-import styles from "@/app/_components/stories/createnewstorypage.module.css";
+import styles from "@/app/_components/stories/createnewstoryform.module.css";
 import { useState } from "react";
 const createnewstoryform = () => {
   const [selectedStoryType, setSelectedStoryType] = useState(null);
@@ -39,13 +39,13 @@ const createnewstoryform = () => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <legend className={styles.label}>
-          Types d'histoire:
-        </legend>
+        <legend className={styles.label}>Types d'histoire:</legend>
         <div className={styles.test}>
           <div
             className={` ${
-              selectedStoryType === "shortStory" ? styles.optionTextSelected : styles.optionText
+              selectedStoryType === "shortStory"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -63,7 +63,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedStoryType === "longStory" ? styles.optionTextSelected : styles.optionText
+              selectedStoryType === "longStory"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -82,13 +84,13 @@ const createnewstoryform = () => {
         </div>
       </div>
       <div className={styles.inputContainer}>
-        <legend className={styles.label}>
-          Types de récits:
-        </legend>
+        <legend className={styles.label}>Types de récits:</legend>
         <div className={styles.test}>
           <div
             className={` ${
-              selectedNarrativeType === "adventure" ? styles.optionTextSelected : styles.optionText
+              selectedNarrativeType === "adventure"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -106,7 +108,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedNarrativeType === "crime" ? styles.optionTextSelected : styles.optionText
+              selectedNarrativeType === "crime"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -124,7 +128,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedNarrativeType === "fantasy" ? styles.optionTextSelected : styles.optionText
+              selectedNarrativeType === "fantasy"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -142,7 +148,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedNarrativeType === "scienceFiction" ? styles.optionTextSelected : styles.optionText
+              selectedNarrativeType === "scienceFiction"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -155,12 +163,14 @@ const createnewstoryform = () => {
               onClick={() => setSelectedNarrativeType("scienceFiction")}
             />
             <label htmlFor="scienceFiction" className={styles.text}>
-            Sci-fi
+              Sci-fi
             </label>
           </div>
           <div
             className={` ${
-              selectedNarrativeType === "psychological" ? styles.optionTextSelected : styles.optionText
+              selectedNarrativeType === "psychological"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -178,7 +188,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedNarrativeType === "romance" ? styles.optionTextSelected : styles.optionText
+              selectedNarrativeType === "romance"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -197,13 +209,13 @@ const createnewstoryform = () => {
         </div>
       </div>
       <div className={styles.inputContainer}>
-        <legend className={styles.label}>
-          Types de voix:
-        </legend>
+        <legend className={styles.label}>Types de voix:</legend>
         <div className={styles.test}>
           <div
             className={` ${
-              selectedVoice === "ash" ? styles.optionTextSelected : styles.optionText
+              selectedVoice === "ash"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -221,7 +233,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedVoice === "echo" ? styles.optionTextSelected : styles.optionText
+              selectedVoice === "echo"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -239,7 +253,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedVoice === "fable" ? styles.optionTextSelected : styles.optionText
+              selectedVoice === "fable"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input
@@ -257,7 +273,9 @@ const createnewstoryform = () => {
           </div>
           <div
             className={` ${
-              selectedVoice === "sage" ? styles.optionTextSelected : styles.optionText
+              selectedVoice === "sage"
+                ? styles.optionTextSelected
+                : styles.optionText
             } transition-colors`}
           >
             <input

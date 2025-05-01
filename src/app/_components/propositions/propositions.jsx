@@ -1,19 +1,24 @@
 import React from "react";
-import { addLikeAction } from "@/app/_actions/proposals";
 import { createClient } from "@/app/_lib/supabase/server";
 import styles from "@/app/_components/propositions/propositions.module.css";
+import LikeButton from "@/app/_components/propositions/likebutton";
 
-const Propositions = async ({
-  idea,
-  storySlug,
-  votingDurationMinutes,
-  storyUpdatedAt,
-}) => {
+const Propositions = async ({ idea, storySlug }) => {
   const supabase = await createClient();
-  const { data, error } = await supabase
+
+  const {
+    data: { user: userConnected },
+  } = await supabase.auth.getUser();
+
+  const { data: likedProposals, error } = await supabase
     .from("liked_proposals")
     .select("*")
-    .eq("proposal_id", idea.id);
+    .eq("proposal_id", idea.id)
+    .eq("user_id", userConnected.id)
+    .single();
+  if (error) console.log(error);
+
+  const isLiked = likedProposals === null ? false : true;
 
   const { data: authorName, errorAuthorName } = await supabase
     .from("users")
@@ -21,26 +26,15 @@ const Propositions = async ({
     .eq("id", idea.author)
     .single();
 
-  function CalculateDelais(storyLatestUpdate) {
-    const currentTime = Date.now();
-    const creationTime = Date.parse(storyLatestUpdate);
-    const timeDifference = currentTime - creationTime;
-    return timeDifference;
-  }
-
   return (
     <div key={idea.id} className={styles.ideas}>
-        <form className={styles.voteForm} action={addLikeAction}>
-          <button>{data.length} 👍</button>
-          <input type="hidden" name="proposalId" value={idea.id} />
-          <input type="hidden" name="storySlug" value={storySlug} />
-        </form>
-      
+      <LikeButton idea={idea} storySlug={storySlug} isLiked={isLiked} />
+
       <p>{idea.text}</p>
       <div className={styles.infos}>
         <p>
           <span className={styles.writingBy}>Écrit par: </span>
-          {authorName.username}
+          <span className={styles.author}>{authorName.username}</span>
         </p>
         <p className={styles.date}>{idea.created_at.slice(0, 10)}</p>
       </div>

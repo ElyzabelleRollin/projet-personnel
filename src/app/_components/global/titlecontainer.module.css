@@ -1,28 +1,16 @@
 .titleContainer{
-    width: 45%;
-    /* width: 30%; */
-    max-width: 600px;
-    background-image: url("/img/openBook.svg");
-    background-position: left center;
+    min-width: 397px;
+    width: 40%;
+    background-image: url("/img/openBook.svg"); 
+    background-position: right center;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: contain;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
-    /* position: relative; */
     z-index: -2;
-}
 
-/* .titleContainer::after{
-    z-index: -1;
-    content: "";
-    display: block;
-    height: 871px;
-    width: 1060px;
-    background-image: url("/img/quillAndInc.svg");
-    position: absolute;
-    left: 465px;
-    top: 320px;
-    background-size: 25%;
-    background-repeat: no-repeat;
-} */
+    @media only screen and (min-width: 2200px) {
+        background-position: left center;
+    }
+}

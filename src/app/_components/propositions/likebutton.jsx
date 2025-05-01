@@ -1,0 +1,28 @@
+"use client";
+import React from "react";
+import styles from "@/app/_components/propositions/propositions.module.css";
+import { addLikeAction } from "@/app/_actions/proposals";
+import { useState } from "react";
+
+const LikeButton = ({ idea, storySlug, isLiked }) => {
+  const [selectedButton, setSelectedButton] = useState(isLiked);
+  return (
+    <form className={styles.voteForm} action={addLikeAction}>
+      <button
+        className={styles.likeButton}
+        onClick={() => setSelectedButton(!selectedButton)}
+      >
+        {idea.likes}{" "}
+        {selectedButton ? (
+          <img className={styles.heart} src="/img/likedHeart.svg" />
+        ) : (
+          <img className={styles.heart} src="/img/emptyHeart.svg" />
+        )}
+      </button>
+      <input type="hidden" name="proposalId" value={idea.id} />
+      <input type="hidden" name="storySlug" value={storySlug} />
+    </form>
+  );
+};
+
+export default LikeButton;

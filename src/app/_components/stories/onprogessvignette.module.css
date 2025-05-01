@@ -1,27 +1,23 @@
 .vignette{
-    background-image: url("https://placehold.co/350x350");
     border-radius: 10px;
     overflow: hidden;
     transition: scale 0.5s;
     position: relative;
-    @media screen and (min-width: 992px) {
-        height: 350px;
-        width: 350px;
-    }
-    @media screen and (min-width: 1200px) {
+    height: 300px;
+    width: 300px;
+
+    @media only screen and (min-width: 1600px) {
         height: 250px;
         width: 250px;
     }
-    @media screen and (min-width: 1600px) {
+    @media only screen and (min-width: 2000px) {
+        height: 300px;
+        width: 300px;
+    }
+    @media only screen and (min-width: 2400px) {
         height: 350px;
         width: 350px;
     }
-}
-
-.image{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
 }
 
 .vignette:hover{
@@ -30,21 +26,26 @@
 }
 
 .infosContainer{
-    background-color: #372049d9;
-    padding: 1em;
+    background-color: #fce8cbcf;
+    background-color: #ad8057e1;
+    padding: 1.25em 1em;
     width: 100%;
     position: absolute;
     bottom: 0;
+    transition: all 0.5s;
+}
+
+.infosContainer:hover{
+    transition: all 0.5s;
+    padding: 1.75em 1em;
+    font-size: 1.2em;
 }
 
 .storyTitle{
     font-weight: bold;
     font-style: italic;
     font-size: 1.5em;
+    text-align: center;
     font-family: "Carattere", cursive;
-}
-
-.collaborateurs{
-font-weight: bold;
-color: lightgray;
+    color: var(--foreground);
 }

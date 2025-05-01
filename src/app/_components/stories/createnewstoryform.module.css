@@ -1,0 +1,87 @@
+
+.formCreateStory{
+display: flex;
+flex-direction: column;
+}
+
+.label{
+    color: var(--background);
+    margin: 0.3rem 0;
+    font-size: 1em;
+        
+    @media only screen and (min-width: 1600px) {
+            font-size: 1.5em;
+    }
+    @media only screen and (min-width: 1800px) {
+            font-size: 1.75em;
+    }
+}
+
+.textInput{
+    border: 0.5px solid var(--lightGray);
+    background-color: var(--background);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.optionText{
+    color: var(--primary2);
+    border: 0.5px solid #fce8cb47;
+    background-color: var(--primary1);
+    width: max-content;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0em 0.5em;
+    transition: all 0.5s;
+}
+.optionTextSelected{
+    color: var(--primary2);
+    border: 0.5px solid #fce8cb;
+    background-color: var(--primary1Dark);
+    width: max-content;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0em 0.5em;
+    transition: all 0.5s;
+}
+
+.radio{
+    display: none;
+}
+
+.number{
+    position: relative;
+    left: 1rem;
+    top: 0.5rem;
+}
+.numbers{
+    position: relative;
+    left: 0.7rem;
+    top: 0.5rem;
+}
+.time{
+    position: relative;
+    left: 0.2rem;
+    top: 0.5rem;
+}
+
+.hours{
+    position: relative;
+    left: 0.4rem;
+    top: 0.5rem;
+}
+
+.text{
+    position: relative;
+    top: 0.5rem;
+}
+ .test{
+    display: flex;
+    gap: 0.5em;
+} 

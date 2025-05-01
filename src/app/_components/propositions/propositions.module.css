@@ -1,16 +1,13 @@
 
 .ideas{
-    background-color: rgb(243, 243, 243);
+    background-color: var(--background);
     padding: 1em;
     border-radius: 0.5rem;
     margin: 0.5rem 0;
  }
 
  .voteForm{
-    background-color: #a9a9a9;
-    width: max-content;
-    padding: 0.1em 1em;
-    border-radius: 5px;
+   width: max-content;
     margin-left: auto;
     margin-bottom: 1rem;
  }
@@ -18,6 +15,7 @@
  .infos{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 1rem;
  }
 
@@ -26,4 +24,24 @@
  }
  .date{
     color: gray;
+    font-size: 0.8em;
  }
+ .author{
+   font-size: 0.8em;
+   color: var(--primary2Dark);
+ }
+
+
+.heart{
+    width: 15px;
+    height: 15px;
+ }
+ 
+.likeButton{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+   background-color: var(--primary2);
+   padding: 0.1em 1em;
+   border-radius: 5px;
+}

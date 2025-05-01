@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import styles from "@/app/_components/stories/readstories.module.css";
 import H1 from "@/app/_components/global/h1";
-import { ElevenLabsClient } from "elevenlabs";
 
 const podcastComponent = ({ story }) => {
   const [loading, setLoading] = useState(false);

@@ -3,7 +3,7 @@
     padding: 0.5em;
     background-color: var(--primary2);
     border-radius: 20px;
-    margin: 2rem 0;
+    margin: 1rem 0 0;
     transition: all 0.5s;
 }
 .submitButton:hover{
