@@ -42,6 +42,8 @@ export async function updateSession(request) {
 
   // s'il n'est pas connecté et ne se diriger pas vers /login ou /auth
   // il est redirigé vers la page login (à ajuster)
+  console.log("[Bearer]", request.headers.get('authorization'));
+
   if (
     !checkIfCronJob(user, request) &&
     !user &&
