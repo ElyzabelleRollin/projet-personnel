@@ -17,7 +17,7 @@ export async function generateAndUploadAudio ({ text, storyId, voice, instructio
     model: 'gpt-4o-mini-tts',
     voice: voice,
     input: text,
-    // instructions,
+    instructions,
   });
 
   const buffer = Buffer.from(await mp3.arrayBuffer());
