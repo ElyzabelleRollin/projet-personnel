@@ -16,7 +16,6 @@ const Propositions = async ({ idea, storySlug }) => {
     .eq("proposal_id", idea.id)
     .eq("user_id", userConnected.id)
     .single();
-  if (error) console.log(error);
 
   const isLiked = likedProposals === null ? false : true;
 

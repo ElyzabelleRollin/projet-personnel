@@ -2,7 +2,6 @@ import { createClient } from "@/app/_lib/supabase/server";
 import { generateAndUploadAudio } from "@/app/_actions/upload";
 
 export async function runEndVote() {
-  console.log("[END VOTE]");
   const supabase = await createClient();
 
   const { data: storiesToUpdate, error: fetchError } = await supabase
