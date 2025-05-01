@@ -9,6 +9,7 @@ export async function runEndVote() {
     .select("*")
     .lt("action_trigger_time", new Date().toISOString())
     .is("is_completed", false);
+    console.log(fetchError);
 
   if (!storiesToUpdate || storiesToUpdate.length === 0) {
     return console.log("No stories to update");
