@@ -9,7 +9,6 @@ export async function runEndVote() {
     .select("*")
     .lt("action_trigger_time", new Date().toISOString())
     .is("is_completed", false);
-    console.log(`[DATE]: ${new Date().toISOString()}`);
 
   if (!storiesToUpdate || storiesToUpdate.length === 0) {
     return console.log("No stories to update");
@@ -60,13 +59,16 @@ export async function runEndVote() {
       continue;
     }
 
+    console.log("[COUCOU??]", isCompleted);
+    
     if (isCompleted) {
       try {
+        console.log("[TRY GENERATE AUDIO]");
         await generateAndUploadAudio({
           text: updatedStoryText.join("\n"),
           storyId: story.id,
           voice: story.voice,
-          instructions: story.tone_of_voice,
+          // instructions: story.tone_of_voice,
         });
       } catch (error) {
         console.error(
@@ -75,7 +77,8 @@ export async function runEndVote() {
         );
       }
     }
-
+    console.log("[AFTER COUCOU??]", isCompleted);
+    
     const { error: deleteError } = await supabase
       .from("proposals")
       .delete()

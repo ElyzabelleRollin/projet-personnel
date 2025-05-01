@@ -13,37 +13,45 @@ const Navigation = async () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.link}>
+          <a href="/">
           <img
             className={styles.illustration}
             src="/img/quillColored.svg"
             alt="quillColered"
-          />
-          <a href="/">Accueil</a>
+            />
+            Accueil
+          </a>
         </li>
 
         <li className={styles.link}>
+          <a href="/stories/createnewstory">
           <img
             className={styles.illustration}
             src="/img/quill.svg"
             alt="quill"
           />
-          <a href="/stories/createnewstory">Créer une histoire</a>
+          Créer une histoire
+          </a>
         </li>
         <li className={styles.link}>
+          <a href="/stories/helpastory">
           <img
             className={styles.illustration}
             src="/img/helpLogo.svg"
             alt="helpLogo"
           />
-          <a href="/stories/helpastory">Aider une histoire</a>
+          Aider une histoire
+          </a>
         </li>
         <li className={styles.link}>
+          <a href="/stories/">
           <img
             className={styles.illustration}
             src="/img/openBookLogo.svg"
             alt="openBookLogo"
           />
-          <a href="/stories/">Lire les histoires</a>
+          Lire les histoires
+          </a>
         </li>
         {userConnected ? (
           <div className={styles.userLink}>

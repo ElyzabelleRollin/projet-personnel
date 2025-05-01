@@ -94,7 +94,9 @@ const ReadStoryPage = async ({ params }) => {
             id="proposal"
             name="proposal"
             className={styles.textInput}
+            maxLength="500"
             placeholder="Écrivez votre idée..."
+            required
           />
           <input type="hidden" id="storyId" name="storyId" value={story.id} />
           <input

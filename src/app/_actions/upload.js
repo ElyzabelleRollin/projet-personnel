@@ -1,8 +1,8 @@
-"use server";
 import OpenAI from "openai";
 import { createClient } from "@/app/_lib/supabase/server";
 
-export const generateAndUploadAudio = async ({ text, storyId, voice, instructions }) => {
+export async function generateAndUploadAudio ({ text, storyId, voice, instructions }){
+  console.log("[FUNCTION GENERATE AUDIO]");
   const fileName = `${storyId}.mp3`;
   const openai = new OpenAI();
   const supabase = await createClient();
@@ -17,7 +17,7 @@ export const generateAndUploadAudio = async ({ text, storyId, voice, instruction
     model: 'gpt-4o-mini-tts',
     voice: voice,
     text,
-    instructions,
+    // instructions,
   });
 
   const buffer = Buffer.from(await mp3.arrayBuffer());
