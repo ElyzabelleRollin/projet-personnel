@@ -78,9 +78,13 @@ export async function runEndVote() {
 
     //Updates the suggestions count:
     const { data: updatedUserInfos, error: ErrorUpdateUserInfos } =
-      await supabase.from("users").update({
-        accepted_proposals_number: userInfos.accepted_proposals_number + 1,
-      });
+      await supabase
+        .from("users")
+        .update({
+          accepted_proposals_number: userInfos.accepted_proposals_number + 1,
+        })
+        .eq("id", proposals[0].author)
+        .single();
     if (ErrorUpdateUserInfos) {
       console.log("[Update user infos failed]", ErrorUpdateUserInfos);
     }

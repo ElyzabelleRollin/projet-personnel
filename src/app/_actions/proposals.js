@@ -36,17 +36,20 @@ export const createNewProposalAction = async (formData) => {
   if (ErrorGetUserInfos) {
     console.log("[Get user infos failed]", ErrorGetUserInfos);
   }
+  console.log(userInfos.proposals_request_number);
 
   //Updates the suggestions count:
-  const { data: updatedUserInfos, error: ErrorUpdateUserInfos } = await supabase
+  const { data: updatedUserInfos, error: errorUpdateUserInfos } = await supabase
     .from("users")
     .update({
       proposals_request_number: userInfos.proposals_request_number + 1,
-    });
-  if (ErrorUpdateUserInfos) {
-    console.log("[Update user infos failed]", ErrorUpdateUserInfos);
-  }
+    })
+    .eq("id", userConnected.id)
+    .single();
 
+  if (errorUpdateUserInfos) {
+    console.log("[Update user infos failed]", errorUpdateUserInfos);
+  }
   revalidatePath(`/stories/${storySlug}/read`); //Revalidate the page
 };
 
