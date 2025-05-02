@@ -49,7 +49,11 @@ const StoryPage = async ({ params }) => {
         <p>
           <span className={styles.subtitle}>Collaborateurs:</span>{" "}
           <span className={styles.collaboratorsNames}>
-            {users.filter(Boolean).map((user, index, arr) => (
+            {[
+              ...new Map(
+                users.filter(Boolean).map((user) => [user.id, user])
+              ).values(),
+            ].map((user, index, arr) => (
               <React.Fragment key={user.id}>
                 <a href={`/profiles/${user.id}`} className={styles.link}>
                   {user.username}
