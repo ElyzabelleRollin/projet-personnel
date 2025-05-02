@@ -14,9 +14,9 @@ const LikeButton = ({ idea, storySlug, isLiked }) => {
       >
         {idea.likes}{" "}
         {selectedButton ? (
-          <img className={styles.heart} src="/img/likedHeart.svg" />
+          <img className={styles.heart} src="/img/likedHeart.svg" alt="liked" />
         ) : (
-          <img className={styles.heart} src="/img/emptyHeart.svg" />
+          <img className={styles.heart} src="/img/emptyHeart.svg" alt="empty" />
         )}
       </button>
       <input type="hidden" name="proposalId" value={idea.id} />

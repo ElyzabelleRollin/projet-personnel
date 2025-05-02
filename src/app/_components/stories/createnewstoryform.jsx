@@ -8,6 +8,39 @@ const createnewstoryform = () => {
   const [selectedStoryType, setSelectedStoryType] = useState(null);
   const [selectedNarrativeType, setSelectedNarrativeType] = useState(null);
   const [selectedVoice, setSelectedVoice] = useState(null);
+
+  const audioAsh = React.useRef(null);
+  const audioEcho = React.useRef(null);
+  const audioFable = React.useRef(null);
+  const audioSage = React.useRef(null);
+
+  const playVoice = (voice) => {
+    if (voice === "ash" && audioAsh.current) {
+      audioFable.current.pause();
+      audioSage.current.pause();
+      audioEcho.current.pause();
+      audioAsh.current.play();
+    }
+    if (voice === "echo" && audioEcho.current) {
+      audioFable.current.pause();
+      audioSage.current.pause();
+      audioAsh.current.pause();
+      audioEcho.current.play();
+    }
+    if (voice === "fable" && audioFable.current) {
+      audioSage.current.pause();
+      audioAsh.current.pause();
+      audioEcho.current.pause();
+      audioFable.current.play();
+    }
+    if (voice === "sage" && audioSage.current) {
+      audioFable.current.pause();
+      audioAsh.current.pause();
+      audioEcho.current.pause();
+      audioSage.current.play();
+    }
+  };
+
   return (
     <form action={createStoryAction} className={styles.formCreateStory}>
       <div className={styles.inputContainer}>
@@ -225,7 +258,15 @@ const createnewstoryform = () => {
               id="ash"
               name="voiceType"
               value={"ash"}
-              onClick={() => setSelectedVoice("ash")}
+              onClick={() => {
+                setSelectedVoice("ash");
+                playVoice("ash");
+              }}
+            />
+            <audio
+              ref={audioAsh}
+              src="https://linprrxiphmpxxiwvstv.supabase.co/storage/v1/object/public/audios/ai/ash.wav"
+              preload="none"
             />
             <label htmlFor="ash" className={styles.text}>
               Ash
@@ -245,7 +286,15 @@ const createnewstoryform = () => {
               id="echo"
               name="voiceType"
               value={"echo"}
-              onClick={() => setSelectedVoice("echo")}
+              onClick={() => {
+                setSelectedVoice("echo");
+                playVoice("echo");
+              }}
+            />
+            <audio
+              ref={audioEcho}
+              src="https://linprrxiphmpxxiwvstv.supabase.co/storage/v1/object/public/audios/ai/echo.wav"
+              preload="none"
             />
             <label htmlFor="echo" className={styles.text}>
               Echo
@@ -265,7 +314,15 @@ const createnewstoryform = () => {
               id="fable"
               name="voiceType"
               value={"fable"}
-              onClick={() => setSelectedVoice("fable")}
+              onClick={() => {
+                setSelectedVoice("fable");
+                playVoice("fable");
+              }}
+            />
+            <audio
+              ref={audioFable}
+              src="https://linprrxiphmpxxiwvstv.supabase.co/storage/v1/object/public/audios/ai/fable.wav"
+              preload="none"
             />
             <label htmlFor="fable" className={styles.text}>
               Fable
@@ -285,7 +342,15 @@ const createnewstoryform = () => {
               id="sage"
               name="voiceType"
               value={"sage"}
-              onClick={() => setSelectedVoice("sage")}
+              onClick={() => {
+                setSelectedVoice("sage");
+                playVoice("sage");
+              }}
+            />
+            <audio
+              ref={audioSage}
+              src="https://linprrxiphmpxxiwvstv.supabase.co/storage/v1/object/public/audios/ai/sage.wav"
+              preload="none"
             />
             <label htmlFor="sage" className={styles.text}>
               Sage

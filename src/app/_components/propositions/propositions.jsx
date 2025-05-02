@@ -24,11 +24,11 @@ const Propositions = async ({ idea, storySlug }) => {
     .select("username")
     .eq("id", idea.author)
     .single();
+  if (errorAuthorName) console.log(errorAuthorName);
 
   return (
     <div key={idea.id} className={styles.ideas}>
       <LikeButton idea={idea} storySlug={storySlug} isLiked={isLiked} />
-
       <p>{idea.text}</p>
       <div className={styles.infos}>
         <p>

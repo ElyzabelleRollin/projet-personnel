@@ -29,13 +29,12 @@ const ReadStoryPage = async ({ params }) => {
   //Promise.all to get the usernames of the collaborators:
   const users = await Promise.all(
     story.collaborators.map(async (collaboratorId) => {
-      //Fetch the usernames from Supabase:
       const { data: user, error } = await supabase
         .from("users")
-        .select("username")
+        .select("id, username")
         .eq("id", collaboratorId)
         .single();
-      //If there is an error or no user, return null:
+
       if (error || !user) {
         console.error(
           "Erreur de récupération utilisateur pour:",
@@ -45,11 +44,9 @@ const ReadStoryPage = async ({ params }) => {
         return null;
       }
 
-      return user.username; //Return the usernames
+      return { id: user.id, username: user.username };
     })
   );
-
-  const collaboratorsNames = users.filter((name) => name !== null); //Filter out null values
 
   return (
     <div className={styles.container}>
@@ -58,7 +55,14 @@ const ReadStoryPage = async ({ params }) => {
         <p>
           <span className={styles.subtitle}>Collaborateurs:</span>{" "}
           <span className={styles.collaboratorsNames}>
-            {collaboratorsNames.join(", ")}
+            {users.filter(Boolean).map((user, index, arr) => (
+              <React.Fragment key={user.id}>
+                <a href={`/profiles/${user.id}`} className={styles.link}>
+                  {user.username}
+                </a>
+                {index < arr.length - 1 && ", "}
+              </React.Fragment>
+            ))}
           </span>
         </p>
         <div className={styles.storyContainer}>
@@ -70,16 +74,18 @@ const ReadStoryPage = async ({ params }) => {
         </div>
       </div>
       <div className={styles.proposalsContainer}>
-        <div className={styles.proposalsTitle}>Consulter les propositions</div>
+        <div className={styles.proposalsTitle}>
+          Proposition en cours pour la partie {story.story.length + 1} de{" "}
+          {story.max_parts}
+        </div>
         <div className={styles.ideasContainer}>
+          {ideas.length === 0 && (
+            <div className={styles.noProposals}>
+              Aucune proposition pour le moment
+            </div>
+          )}
           {ideas.map((idea) => (
-            <Propositions
-              idea={idea}
-              key={idea.id}
-              storySlug={storiesSlug}
-              votingDurationMinutes={story.voting_duration_minutes}
-              storyUpdatedAt={story.latest_update_time}
-            />
+            <Propositions idea={idea} key={idea.id} storySlug={storiesSlug} />
           ))}
         </div>
         <form

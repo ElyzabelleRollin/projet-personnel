@@ -1,49 +1,45 @@
+//Imports:
 "use server";
 import { createClient } from "@/app/_lib/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
+//Function to get the site URL:
 const getURL = () => {
-  let url = process?.env?.NEXT_PUBLIC_SITE_URL ?? `http://localhost:3000/`;
-  url = url.startsWith("http") ? url : `https://${url}`;
-  // Assurer que l'URL se termine par '/'
-  url = url.endsWith("/") ? url : `${url}/`;
-  return url;
+  let url = process?.env?.NEXT_PUBLIC_SITE_URL ?? `http://localhost:3000/`; //Get the site URL
+  url = url.startsWith("http") ? url : `https://${url}`; //Check if the URL starts with 'http'
+  url = url.endsWith("/") ? url : `${url}/`; //Check if the URL ends with '/'
+  return url; //Return the URL
 };
 
+//Function to sign in with GitHub:
 export const oauthSigninAction = async () => {
-  const supabase = await createClient();
+  const supabase = await createClient(); //Access Supabase
 
-  // Afin que l'URL du site soit dynamique et facilement migrable vers un hébergeur
-  const headersAsync = await headers();
-  const origin = headersAsync.get("origin"); // Utilisation de "origin" si nécessaire
+  const headersAsync = await headers(); //Get the headers
+  const origin = headersAsync.get("origin"); //Get the origin
 
-  // Demande de connexion via GitHub
+  //Redirection to GitHub for the authentification:
   const { error, data } = await supabase.auth.signInWithOAuth({
     provider: "github",
     options: {
-      // L'utilisateur sera redirigé après l'authentification
-      redirectTo: `${getURL()}auth/callback`,
+      redirectTo: `${getURL()}auth/callback`, //Set the redirect URL to the callback
     },
   });
-
-  if (error) {
-    console.log("[AUTH LOGIN ERROR]", error);
-  } else {
+  if (error) console.log("[AUTH LOGIN ERROR]", error);
+  else {
     console.log("[SUCCESSFUL]", data.url);
-    // Redirection vers GitHub pour l'authentification
-    return redirect(data.url);
+    return redirect(data.url); //Redirect to GitHub
   }
 };
 
+//Function to logout:
 export const logout = async () => {
-  const supabase = await createClient();
-  const { error } = await supabase.auth.signOut();
+  const supabase = await createClient(); //Access Supabase
+  const { error } = await supabase.auth.signOut(); //Logout
 
   if (error) {
-    console.error("[AUTH LOGOUT ERROR]", error);
-    throw new Error("Logout failed. Please try again.");
+    console.log("[AUTH LOGOUT ERROR]", error);
   }
-
-  return redirect("/auth/login");
+  return redirect("/auth/login"); //Redirect to the login page
 };

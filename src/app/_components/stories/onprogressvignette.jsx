@@ -1,51 +1,37 @@
 // Imports:
-"use client";
 import styles from "@/app/_components/stories/onprogessvignette.module.css";
-import React, { useRef, useState } from "react";
+import LikeStoryButton from "./likestorybutton";
+import { createClient } from "@/app/_lib/supabase/server";
 
 // Used to display the vignette of a story:
-const OnProgressVignette = ({ story }) => {
-  const audioRef = useRef(null); // Reference to the audio element
-  const [isPlaying, setIsPlaying] = useState(false); // Used to know if the audio is playing
+const OnProgressVignette = async ({ story }) => {
+  const supabase = await createClient(); //Access Supabase
 
-  // Function to play or pause the audio
-  const handlePlayPause = () => {
-    // If there is an audio element:
-    if (audioRef.current) {
-      // If the audio is playing:
-      if (isPlaying) {
-        audioRef.current.pause(); // It's paused
-        console.log("Audio paused");
-      } else {
-        audioRef.current
-          .play() // It's played
-          .then(() => {
-            console.log("Audio played");
-          })
-          .catch((err) => {
-            console.error("Error playing audio :", err);
-          });
-      }
-      setIsPlaying(!isPlaying); // Toggle between play and pause
-    }
-  };
+  //Get the user connected:
+  const {
+    data: { user: userConnected },
+  } = await supabase.auth.getUser();
 
-  // Render logic based on whether the story is completed or not
+  //Check if story as been liked by the user:
+  const { data: likedStory, error } = await supabase
+    .from("liked_stories")
+    .select("*")
+    .eq("story_id", story.id)
+    .eq("user_id", userConnected.id)
+    .single();
+
   return story.is_completed ? (
-    // If the story is completed, allow play/pause of audio on click
-    <div onClick={handlePlayPause}>
-      <audio ref={audioRef} src={story.audio_url} preload="none" />
+    <a className={styles.link} href={`/stories/${story.slug}`}>
       <div className={styles.vignette}>
         <img src={story.image_url} alt={story.title} className={styles.image} />
         <div className={styles.infosContainer}>
           <p className={styles.storyTitle}>{story.title}</p>
         </div>
       </div>
-    </div>
+      <LikeStoryButton story={story} isLiked={likedStory != null} />
+    </a>
   ) : (
-    // If the story is not completed, link to the reading page
     <a href={`/stories/${story.slug}/read`}>
-      <audio ref={audioRef} src={story.audio_url} preload="none" />
       <div className={styles.vignette}>
         <img src={story.image_url} alt={story.title} className={styles.image} />
         <div className={styles.infosContainer}>

@@ -48,3 +48,55 @@ color: lightgray;
     scale: 1.1;
     transition: all 0.5s;
 }
+
+.infosContainer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #593476e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    display: flex; 
+    gap: 2rem;
+    background-color: #593476e6;
+    width: min-content;
+    border-radius: 20px;
+    margin: 2rem 0 1rem 0;
+}
+
+.navButton{
+    padding: 1rem;
+    width: max-content;
+    border: none;
+    color: var(--foreground);
+    font-size: 1.2em;
+    transition: all 0.5s;
+    border-radius: 20px;
+}
+
+.navButton:hover{
+    scale: 1.1;
+    transition: all 0.5s;
+    border-radius: 20px;
+    background-color: antiquewhite;
+}
+.navButtonActive {
+    font-size: 1.2em;
+    border: none;
+    padding: 1rem;
+    width: max-content;
+    transition: all 0.5s;
+    border-radius: 20px;
+    background-color: antiquewhite;
+}
+
+.vignettesContainer{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}

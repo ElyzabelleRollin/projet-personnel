@@ -5,8 +5,26 @@
 }
 
 .storyInfos{
+  padding: 3em;
+  width: 50%;
+  margin: 0 auto ;
+}
 
-      padding: 3em;
+.noProposals {
+  background-color: var(--background);
+  padding: 3em 1em;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.link:hover{
+  color: var(--primary1Dark);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.link{
+  color: var(--primary2Dark);
+  transition: all 0.5s;
 }
 
 .subtitle{
@@ -14,9 +32,6 @@
   font-size: 1.3em;
 }
 
-.collaboratorsNames{
- color: var(--primary2Dark);
-}
 
 .text{
   margin-top: 2rem;
@@ -27,10 +42,10 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  flex-grow: 1;
+  width: 30%;
   background-color: #ad80576b;
   border-radius: 10px;
-  margin: 1em;
+  margin: 1rem 8rem 1rem auto;
  }
 
  .ideasContainer {
@@ -71,3 +86,60 @@
   margin: 1rem 0;
  }
 
+ .audioContainer{
+  width: 33%;
+  margin-top: 4rem;
+ }
+
+
+
+ .tooltip {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   margin-left: 3rem;
+ }
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 20px);
+  height: 35px;
+  width: 35px;
+  border: 3px solid #ad80576b;
+  border-radius: 50%;
+}
+
+ .tooltipText {
+   visibility: hidden;
+   width: max-content;
+   max-width: 200px;
+   background-color: black;
+   color: #fff;
+   text-align: center;
+   border-radius: 6px;
+   padding: 5px 10px;
+   position: absolute;
+   z-index: 10;
+   bottom: 125%;
+   /* Position au-dessus */
+   left: 50%;
+   transform: translateX(-50%);
+   opacity: 0;
+   transition: opacity 0.3s;
+ }
+
+ .tooltip:hover .tooltipText {
+   visibility: visible;
+   opacity: 1;
+ }
+
+ .storySegment{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+ }

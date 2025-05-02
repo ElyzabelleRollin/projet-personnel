@@ -31,8 +31,7 @@ export const CreateStoryImage = async ({ text, storyId }) => {
     });
   //If there is an error:
   if (errorUpload) {
-    console.error("Upload error:", errorUpload);
-    throw new Error("Échec de l'upload de l'image.");
+    console.error("[UPLOAD IMAGE ERROR]", errorUpload);
   }
 
   // 3. Get the public URL:
@@ -48,8 +47,7 @@ export const CreateStoryImage = async ({ text, storyId }) => {
     .update({ image_url: imagePublicUrl })
     .eq("id", storyId);
   if (dbError) {
-    console.error("Erreur DB:", dbError);
-    throw new Error("Échec de la mise à jour de l'image dans la story.");
+    console.error("[ERROR UPDATING IMAGE URL IN DATABASE]", dbError);
   }
 
   return imagePublicUrl; //Return the public URL
