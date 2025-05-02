@@ -29,7 +29,7 @@ export const createNewProposalAction = async (formData) => {
 
   //Adds in the user profile the count of suggestions:
   const { data: userInfos, error: ErrorGetUserInfos } = await supabase
-    .from("profiles")
+    .from("users")
     .select("proposals_request_number")
     .eq("id", userConnected.id)
     .single();
@@ -39,7 +39,7 @@ export const createNewProposalAction = async (formData) => {
 
   //Updates the suggestions count:
   const { data: updatedUserInfos, error: ErrorUpdateUserInfos } = await supabase
-    .from("profiles")
+    .from("users")
     .update({
       proposals_request_number: userInfos.proposals_request_number + 1,
     });

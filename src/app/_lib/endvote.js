@@ -68,7 +68,7 @@ export async function runEndVote() {
 
     //Adds in the user profile the count of suggestions:
     const { data: userInfos, error: ErrorGetUserInfos } = await supabase
-      .from("profiles")
+      .from("users")
       .select("accepted_proposals_number")
       .eq("id", proposals[0].author)
       .single();
@@ -78,7 +78,7 @@ export async function runEndVote() {
 
     //Updates the suggestions count:
     const { data: updatedUserInfos, error: ErrorUpdateUserInfos } =
-      await supabase.from("profiles").update({
+      await supabase.from("users").update({
         accepted_proposals_number: userInfos.accepted_proposals_number + 1,
       });
     if (ErrorUpdateUserInfos) {
