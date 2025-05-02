@@ -3,14 +3,36 @@ import styles from "@/app/_components/global/homepage.module.css";
 
 export default function Home() {
   return (
-    <div>
-      <H1 content={"La plume partagée"} />
-      <p className={styles.description}>
-        Cette application offre un espace pour partager des histoires et des
-        idées. Les utilisateurs peuvent proposer des améliorations, voter sur
-        celles-ci, et voir leurs récits transformés en podcasts immersifs
-        générés par une IA.
-      </p>
+    <div className={styles.pageContainer}>
+      <div className={styles.container}>
+        <h2 className={styles.title}>
+          Créez votre histoire et laissez-vous inspirer par la communauté
+        </h2>
+        <div className={styles.imgContainer}>
+          <img className={styles.img} src="/img/createStory.png" alt="" />
+        </div>
+      </div>
+      <div className={styles.containerHow}>
+        <h2 className={styles.titleHow}>Comment ça fonctionne?</h2>
+        <ul className={styles.list}>
+          <li className={styles.listItem}>
+            <img className={styles.logo} src="/img/add.svg" alt="" />
+            Créez
+          </li>
+          <li className={styles.listItem}>
+            <img className={styles.logo} src="/img/quill.svg" alt="" />
+            Proposez
+          </li>
+          <li className={styles.listItem}>
+            <img className={styles.logo} src="/img/emptyHeart.svg" alt="" />
+            Votez
+          </li>
+          <li className={styles.listItem}>
+            <img className={styles.logo} src="/img/play.svg" alt="" />
+            Écoutez
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

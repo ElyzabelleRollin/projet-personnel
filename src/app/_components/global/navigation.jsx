@@ -13,44 +13,44 @@ const Navigation = async () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.link}>
-          <a href="/">
-          <img
-            className={styles.illustration}
-            src="/img/quillColored.svg"
-            alt="quillColered"
-            />
-            Accueil
+          <a className={styles.title} href="/">
+            {/* <img
+              className={styles.illustration}
+              src="/img/quillColored.svg"
+              alt="quillColered"
+            /> */}
+            La plume partagée
           </a>
         </li>
 
         <li className={styles.link}>
           <a href="/stories/createnewstory">
-          <img
-            className={styles.illustration}
-            src="/img/quill.svg"
-            alt="quill"
-          />
-          Créer une histoire
+            <img
+              className={styles.illustration}
+              src="/img/quill.svg"
+              alt="quill"
+            />
+            Créer une histoire
           </a>
         </li>
         <li className={styles.link}>
           <a href="/stories/helpastory">
-          <img
-            className={styles.illustration}
-            src="/img/helpLogo.svg"
-            alt="helpLogo"
-          />
-          Aider une histoire
+            <img
+              className={styles.illustration}
+              src="/img/helpLogo.svg"
+              alt="helpLogo"
+            />
+            Aider une histoire
           </a>
         </li>
         <li className={styles.link}>
           <a href="/stories/">
-          <img
-            className={styles.illustration}
-            src="/img/openBookLogo.svg"
-            alt="openBookLogo"
-          />
-          Lire les histoires
+            <img
+              className={styles.illustration}
+              src="/img/openBookLogo.svg"
+              alt="openBookLogo"
+            />
+            Lire les histoires
           </a>
         </li>
         {userConnected ? (
@@ -68,32 +68,25 @@ const Navigation = async () => {
               </a>
             </li>
             <form action={logout}>
-              <button>Déconnexion</button>
+              <button>
+                <img
+                  className={styles.illustration}
+                  src="/img/logout.svg"
+                  alt="logoutLogo"
+                />
+                Déconnexion
+              </button>
             </form>
           </div>
         ) : (
           <li className={styles.userLink}>
             <a href="/auth/login">
-              <svg
-                className={styles.login}
-                xmlns="http://www.w3.org/2000/svg"
-                width="224.95"
-                height="281.63"
-                viewBox="0 0 224.95 281.63"
-              >
-                <g>
-                  <path
-                    style={{ fill: "#654c8e" }}
-                    d="M.05,281.63S-6.08,118.47,114.44,120.51s110.3,161.12,110.3,161.12H.05Z"
-                  />
-                  <circle
-                    style={{ fill: "#654c8e" }}
-                    cx="112.47"
-                    cy="55.15"
-                    r="55.15"
-                  />
-                </g>
-              </svg>
+              <img
+                className={styles.illustration}
+                src="/img/login.svg"
+                alt="loginLogo"
+              />
+              Connexion
             </a>
           </li>
         )}

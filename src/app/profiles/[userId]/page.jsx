@@ -24,8 +24,6 @@ const UserProfilePage = async ({ params }) => {
     .select("stories(*)")
     .eq("user_id", userId);
 
-  console.log(user.avatar);
-
   return (
     <div className={styles.pageContainer}>
       <div className={styles.userInfosContainer}>
@@ -34,10 +32,24 @@ const UserProfilePage = async ({ params }) => {
         </div>
         <div className={styles.userInfos}>
           <H1 content={user.username} />
-          <p>Membre depuis: </p>
+          <p>Membre depuis: {user.created_at.slice(0, 10)}</p>
         </div>
       </div>
-      <DisplayStories stories={stories} likedStories={likedStories} />
+
+      <div className={styles.storiesContainer}>
+        <DisplayStories stories={stories} likedStories={likedStories} />
+        <div className={styles.listOfInfos}>
+          <ul className={styles.list}>
+            <li>Oeuvre la plus aimée: </li>
+            <li>
+              Nombre de propositions envoyées: {user.proposals_request_number}
+            </li>
+            <li>
+              Nombre de propositions acceptées: {user.accepted_proposals_number}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };

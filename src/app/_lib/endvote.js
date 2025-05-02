@@ -66,6 +66,25 @@ export async function runEndVote() {
       continue; //If there is an error, skip to the next story
     }
 
+    //Adds in the user profile the count of suggestions:
+    const { data: userInfos, error: ErrorGetUserInfos } = await supabase
+      .from("profiles")
+      .select("accepted_proposals_number")
+      .eq("id", proposals[0].author)
+      .single();
+    if (ErrorGetUserInfos) {
+      console.log("[Get user infos failed]", ErrorGetUserInfos);
+    }
+
+    //Updates the suggestions count:
+    const { data: updatedUserInfos, error: ErrorUpdateUserInfos } =
+      await supabase.from("profiles").update({
+        accepted_proposals_number: userInfos.accepted_proposals_number + 1,
+      });
+    if (ErrorUpdateUserInfos) {
+      console.log("[Update user infos failed]", ErrorUpdateUserInfos);
+    }
+
     //If the story is completed, generate and upload audio:
     if (isCompleted) {
       try {

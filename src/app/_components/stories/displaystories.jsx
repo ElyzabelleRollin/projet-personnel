@@ -73,17 +73,20 @@ const DisplayStories = ({ stories, likedStories }) => {
         </div>
       )}
 
-      {/* {content === "favorite" && Array.isArray(likedStories) && (
+      {content === "favorite" && (
         <div className={styles.myStoriesContainer}>
           <div className={styles.vignettesContainer}>
-            {likedStories.map((story) => (
-              <div key={story.id}>
-                <ProfileStoryVignette story={story} typeNeeded="favorite" />
+            {likedStories.map((likedStory) => (
+              <div key={likedStory.stories.id}>
+                <ProfileStoryVignette
+                  story={likedStory.stories}
+                  typeNeeded="favorite"
+                />
               </div>
             ))}
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

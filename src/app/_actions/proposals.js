@@ -10,6 +10,11 @@ export const createNewProposalAction = async (formData) => {
   const storySlug = formData.get("storySlug"); //Get the story slug from the form
   const supabase = await createClient(); //Access Supabase
 
+  //Get the user connected:
+  const {
+    data: { user: userConnected },
+  } = await supabase.auth.getUser();
+
   //Add the proposal to Supabase:
   const { data: newProposal, error: newProposalError } = await supabase
     .from("proposals")
@@ -20,6 +25,26 @@ export const createNewProposalAction = async (formData) => {
     .select();
   if (newProposalError) {
     console.log("[Proposal creation failed]", newProposalError);
+  }
+
+  //Adds in the user profile the count of suggestions:
+  const { data: userInfos, error: ErrorGetUserInfos } = await supabase
+    .from("profiles")
+    .select("proposals_request_number")
+    .eq("id", userConnected.id)
+    .single();
+  if (ErrorGetUserInfos) {
+    console.log("[Get user infos failed]", ErrorGetUserInfos);
+  }
+
+  //Updates the suggestions count:
+  const { data: updatedUserInfos, error: ErrorUpdateUserInfos } = await supabase
+    .from("profiles")
+    .update({
+      proposals_request_number: userInfos.proposals_request_number + 1,
+    });
+  if (ErrorUpdateUserInfos) {
+    console.log("[Update user infos failed]", ErrorUpdateUserInfos);
   }
 
   revalidatePath(`/stories/${storySlug}/read`); //Revalidate the page

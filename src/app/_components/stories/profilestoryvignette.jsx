@@ -7,6 +7,8 @@ const ProfileStoryVignette = ({ story, typeNeeded }) => {
     (typeNeeded === "completed" && story.is_completed) ||
     typeNeeded === "favorite";
 
+  if (typeNeeded === "favorite") console.log("[FAVORITE]", story);
+
   if (!shouldDisplay) return null;
 
   return (
