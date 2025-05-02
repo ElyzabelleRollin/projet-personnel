@@ -59,7 +59,7 @@ const createnewstoryform = () => {
       </div>
       <div className={styles.inputContainer}>
         <label htmlFor="firstParagraph" className={styles.label}>
-          Commencez votre histoire
+          Démarrez votre histoire
         </label>
         <textarea
           className={styles.textInput}
@@ -72,7 +72,7 @@ const createnewstoryform = () => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <legend className={styles.label}>Types d'histoire:</legend>
+        <legend className={styles.label}>Type d'histoire:</legend>
         <div className={styles.test}>
           <div
             className={` ${
@@ -117,7 +117,7 @@ const createnewstoryform = () => {
         </div>
       </div>
       <div className={styles.inputContainer}>
-        <legend className={styles.label}>Types de récits:</legend>
+        <legend className={styles.label}>Type de récit:</legend>
         <div className={styles.test}>
           <div
             className={` ${
@@ -242,7 +242,7 @@ const createnewstoryform = () => {
         </div>
       </div>
       <div className={styles.inputContainer}>
-        <legend className={styles.label}>Types de voix:</legend>
+        <legend className={styles.label}>Type de voix:</legend>
         <div className={styles.test}>
           <div
             className={` ${

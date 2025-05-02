@@ -79,13 +79,13 @@ const ReadStoryPage = async ({ params }) => {
       </div>
       <div className={styles.proposalsContainer}>
         <div className={styles.proposalsTitle}>
-          Proposition en cours pour la partie {story.story.length + 1} de{" "}
+          Proposition en cours pour la partie {story.story.length + 1} sur{" "}
           {story.max_parts}
         </div>
         <div className={styles.ideasContainer}>
           {ideas.length === 0 && (
             <div className={styles.noProposals}>
-              Aucune proposition pour le moment
+              Aucune proposition n'a été soumise pour le moment
             </div>
           )}
           {ideas.map((idea) => (
@@ -97,7 +97,7 @@ const ReadStoryPage = async ({ params }) => {
           className={styles.propositionForm}
         >
           <label htmlFor="proposal" className={styles.formTitle}>
-            Proposez votre idée:
+            Partagez votre idée:
           </label>
           <textarea
             type="text"
@@ -105,7 +105,7 @@ const ReadStoryPage = async ({ params }) => {
             name="proposal"
             className={styles.textInput}
             maxLength="500"
-            placeholder="Écrivez votre idée..."
+            placeholder="Rédigez votre idée..."
             required
           />
           <input type="hidden" id="storyId" name="storyId" value={story.id} />

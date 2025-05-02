@@ -1,11 +1,8 @@
-"use client";
-import React, { useState } from "react";
+//Imports:
 import styles from "@/app/_components/stories/readstories.module.css";
 import H1 from "@/app/_components/global/h1";
 
 const podcastComponent = ({ story }) => {
-  const [loading, setLoading] = useState(false);
-
   return (
     <div className={styles.container}>
       <div className={styles.storyInfos}>
@@ -20,9 +17,6 @@ const podcastComponent = ({ story }) => {
           {story.story.map((text, index) => (
             <div key={index} className={styles.storySegment}>
               <p className={styles.text}>{text}</p>
-              {/* <button onClick={() => playAudio(text)} disabled={loading}>
-                {loading ? "Loading..." : "Play Audio"}
-              </button> */}
             </div>
           ))}
         </div>

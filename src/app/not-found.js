@@ -9,9 +9,9 @@ export default function NotFound() {
       </div>
       <div className={styles.textContainer}>
         <H1 content={"Erreur 404"} />
-        <p>Nous n'avons pas trouvé la page que vous cherchez</p>
+        <p>Oups, nous n'avons pas trouvé la page que vous recherchez !</p>
         <a className={styles.link} href="/">
-          Revenir sur la page d'accueil
+        Retourner à la page d'accueil
         </a>
       </div>
     </div>

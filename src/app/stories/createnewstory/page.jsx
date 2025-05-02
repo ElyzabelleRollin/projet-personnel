@@ -6,7 +6,7 @@ import styles from "@/app/_components/stories/createnewstorypage.module.css";
 const CreateNewStoryPage = () => {
   return (
     <div className={styles.pageContainer}>
-      <TitleContainer title={"Créez une histoire"} />
+      <TitleContainer title={"Donnez vie à votre histoire"} />
       <div className={styles.formContainer}>
         <CreateNewStoryForm />
       </div>

@@ -41,10 +41,10 @@ const UserProfilePage = async ({ params }) => {
         <div className={styles.listOfInfos}>
           <ul className={styles.list}>
             <li>
-              Nombre de propositions envoyées: {user.proposals_request_number? user.proposals_request_number : 0}
+            Nombre de propositions soumises: {user.proposals_request_number? user.proposals_request_number : 0}
             </li>
             <li>
-              Nombre de propositions acceptées: {user.accepted_proposals_number ? user.accepted_proposals_number : 0}
+            Nombre de propositions acceptées: {user.accepted_proposals_number ? user.accepted_proposals_number : 0}
             </li>
           </ul>
         </div>

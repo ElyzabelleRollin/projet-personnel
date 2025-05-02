@@ -6,14 +6,14 @@ export default function Home() {
     <div className={styles.pageContainer}>
       <div className={styles.container}>
         <h2 className={styles.title}>
-          Créez votre histoire et laissez-vous inspirer par la communauté
+        Créez votre propre histoire et laissez-vous guider par l'inspiration de la communauté
         </h2>
         <div className={styles.imgContainer}>
           <img className={styles.img} src="/img/createStory.png" alt="" />
         </div>
       </div>
       <div className={styles.containerHow}>
-        <h2 className={styles.titleHow}>Comment ça fonctionne?</h2>
+        <h2 className={styles.titleHow}>Comment cela fonctionne-t-il ?</h2>
         <ul className={styles.list}>
           <li className={styles.listItem}>
             <img className={styles.logo} src="/img/add.svg" alt="" />

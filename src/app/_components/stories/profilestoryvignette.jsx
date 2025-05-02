@@ -22,7 +22,7 @@ const ProfileStoryVignette = ({ story, typeNeeded }) => {
           </a>
         ) : (
           <a className={styles.link} href={`/stories/${story.slug}/read`}>
-            Consulter
+            Découvrir
           </a>
         )}
       </div>

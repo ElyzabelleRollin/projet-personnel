@@ -32,7 +32,7 @@ const Propositions = async ({ idea, storySlug }) => {
       <p>{idea.text}</p>
       <div className={styles.infos}>
         <p>
-          <span className={styles.writingBy}>Écrit par: </span>
+          <span className={styles.writingBy}>Rédigé par: </span>
           <span className={styles.author}>{authorName.username}</span>
         </p>
         <p className={styles.date}>{idea.created_at.slice(0, 10)}</p>

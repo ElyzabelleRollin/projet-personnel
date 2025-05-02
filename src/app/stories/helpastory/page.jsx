@@ -12,7 +12,7 @@ const Helpastory = async () => {
     .eq("is_completed", false);
   return (
     <div className={styles.pageContainer}>
-      <TitleContainer title={"Histoires en attente d'aide"} />
+      <TitleContainer title={"Aidez à faire avancer ces histoires"} />
       <div className={styles.vignettesContainer}>
         {stories.map((story) => (
           <OnProgressVignette key={story.id} story={story} />

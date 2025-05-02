@@ -9,7 +9,7 @@ const loading = () => {
       </div>
       <div className={styles.textContainer}>
         <H1 content={"En chargement..."} />
-        <p>Soyez patient, la créativité prend du temps</p>
+        <p>Merci de patienter, la créativité nécessite du temps</p>
       </div>
     </div>
   );
