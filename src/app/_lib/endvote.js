@@ -45,28 +45,28 @@ export async function runEndVote() {
     //Check if the story is completed:
     const isCompleted = updatedStoryText.length >= story.max_parts;
 
-    // //Adds in the user profile the count of suggestions:
-    // const { data: userInfos, error: ErrorGetUserInfos } = await supabase
-    //   .from("users")
-    //   .select("accepted_proposals_number")
-    //   .eq("id", proposals[0].author)
-    //   .single();
-    // if (ErrorGetUserInfos) {
-    //   console.log("[Get user infos failed]", ErrorGetUserInfos);
-    // }
+    //Adds in the user profile the count of suggestions:
+    const { data: userInfos, error: ErrorGetUserInfos } = await supabase
+      .from("users")
+      .select("accepted_proposals_number")
+      .eq("id", proposals[0].author)
+      .single();
+    if (ErrorGetUserInfos) {
+      console.log("[Get user infos failed]", ErrorGetUserInfos);
+    }
 
-    // //Updates the suggestions count:
-    // const { data: updatedUserInfos, error: ErrorUpdateUserInfos } =
-    //   await supabase
-    //     .from("users")
-    //     .update({
-    //       accepted_proposals_number: userInfos.accepted_proposals_number + 1,
-    //     })
-    //     .eq("id", proposals[0].author)
-    //     .single();
-    // if (ErrorUpdateUserInfos) {
-    //   console.log("[Update user infos failed]", ErrorUpdateUserInfos);
-    // }
+    //Updates the suggestions count:
+    const { data: updatedUserInfos, error: ErrorUpdateUserInfos } =
+      await supabase
+        .from("users")
+        .update({
+          accepted_proposals_number: userInfos.accepted_proposals_number + 1,
+        })
+        .eq("id", proposals[0].author)
+        .single();
+    if (ErrorUpdateUserInfos) {
+      console.log("[Update user infos failed]", ErrorUpdateUserInfos);
+    }
 
     //Update the story:
     const { error: updateError } = await supabase
