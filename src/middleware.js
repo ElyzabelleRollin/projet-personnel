@@ -1,10 +1,13 @@
+//Imports:
 import { updateSession } from "./app/_lib/supabase/middleware";
 
+//Function to update the session:
 export async function middleware(request) {
-  // update session est appelé pour chaque requête
+  // Code to be executed for each request before the framework:
   return await updateSession(request);
 }
 
+//Middleware configuration:
 export const config = {
   matcher: [
     /*

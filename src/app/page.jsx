@@ -1,12 +1,14 @@
-import H1 from "./_components/global/h1";
+//Imports:
 import styles from "@/app/_components/global/homepage.module.css";
 
+//Homepage:
 export default function Home() {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.container}>
         <h2 className={styles.title}>
-        Créez votre propre histoire et laissez-vous guider par l'inspiration de la communauté
+          Créez votre propre histoire et laissez-vous guider par l'inspiration
+          de la communauté
         </h2>
         <div className={styles.imgContainer}>
           <img className={styles.img} src="/img/createStory.png" alt="" />

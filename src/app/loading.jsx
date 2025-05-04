@@ -1,6 +1,8 @@
+//Imports:
 import styles from "@/app/_components/global/notfound.module.css";
 import H1 from "@/app/_components/global/h1";
 
+//Loading page:
 const loading = () => {
   return (
     <div className={styles.notFoundPage}>

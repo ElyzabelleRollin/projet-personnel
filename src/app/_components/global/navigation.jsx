@@ -1,10 +1,14 @@
+//Imports:
 import React from "react";
 import styles from "@/app/_components/global/nav.module.css";
 import { createClient } from "@/app/_lib/supabase/server";
 import { logout } from "@/app/_actions/auth";
 
+//Component to display the navigation:
 const Navigation = async () => {
-  const supabase = await createClient();
+  const supabase = await createClient(); //Access Supabase
+
+  //Get the user connected:
   const {
     data: { user: userConnected },
   } = await supabase.auth.getUser();
@@ -14,11 +18,6 @@ const Navigation = async () => {
       <ul className={styles.list}>
         <li className={styles.link}>
           <a className={styles.title} href="/">
-            {/* <img
-              className={styles.illustration}
-              src="/img/quillColored.svg"
-              alt="quillColered"
-            /> */}
             La plume partagée
           </a>
         </li>

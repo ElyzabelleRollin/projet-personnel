@@ -2,6 +2,7 @@
 import styles from "@/app/_components/stories/readstories.module.css";
 import H1 from "@/app/_components/global/h1";
 
+//Podcast component:
 const podcastComponent = ({ story }) => {
   return (
     <div className={styles.container}>

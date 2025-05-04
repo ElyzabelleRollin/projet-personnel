@@ -1,5 +1,7 @@
+/* Imports: */
 @import "tailwindcss";
 
+/* Global variables: */
 :root {
   --background: #ffffff;
   --foreground: #18252d;
@@ -14,6 +16,8 @@
   --font-carattere: "Carattere", cursive;
 }
 
+/* Global styles: */
+
 html{
   box-sizing: border-box;
   font-size: 16px;
@@ -25,7 +29,6 @@ html{
   margin: 0;
   padding: 0;
 }
-
 
 body {
   font-family: var(--font-averia-libre);

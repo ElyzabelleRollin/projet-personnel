@@ -1,3 +1,4 @@
+//Imports:
 "use client";
 import React from "react";
 import Button from "@/app/_components/global/button";
@@ -5,17 +6,20 @@ import { createStoryAction } from "@/app/_actions/stories";
 import styles from "@/app/_components/stories/createnewstoryform.module.css";
 import { useState } from "react";
 const createnewstoryform = () => {
-  const [selectedStoryType, setSelectedStoryType] = useState(null);
-  const [selectedNarrativeType, setSelectedNarrativeType] = useState(null);
-  const [selectedVoice, setSelectedVoice] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [selectedStoryType, setSelectedStoryType] = useState(null); //Type of the story
+  const [selectedNarrativeType, setSelectedNarrativeType] = useState(null); //Type of the narrative
+  const [selectedVoice, setSelectedVoice] = useState(null); //Voice of the narrator
+  const [loading, setLoading] = useState(false); //Loading state
 
+  //Refs to the AI voice:
   const audioAsh = React.useRef(null);
   const audioEcho = React.useRef(null);
   const audioFable = React.useRef(null);
   const audioSage = React.useRef(null);
 
+  //Function to play the AI voice based on the selected voice:
   const playVoice = (voice) => {
+    //If the voice is selected, pause all other voices and play the selected voice:
     if (voice === "ash" && audioAsh.current) {
       audioFable.current.pause();
       audioSage.current.pause();

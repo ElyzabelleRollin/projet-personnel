@@ -13,7 +13,7 @@ export async function runEndVote() {
     .select("*")
     .lt("action_trigger_time", new Date().toISOString())
     .is("is_completed", false);
-
+  //If there are no stories to update, return
   if (!storiesToUpdate || storiesToUpdate.length === 0) {
     return console.log("[NO STORIES TO UPDATE]");
   }
@@ -27,6 +27,7 @@ export async function runEndVote() {
       .eq("story_id", story.id)
       .order("likes", { ascending: false });
 
+    //If there are no proposals, skip to the next story
     if (proposalsError || !proposals || proposals.length === 0) {
       if (proposalsError) {
         console.log("[THERE'S NO PROPOSALS FOR THE STORY]", proposalsError);
@@ -108,7 +109,7 @@ export async function runEndVote() {
       .from("proposals")
       .delete()
       .eq("story_id", story.id);
-
+    //If there is an error, log it
     if (deleteError) {
       console.error("[Error deleting proposals]", deleteError);
     }

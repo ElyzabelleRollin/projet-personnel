@@ -1,11 +1,14 @@
+//Imports:
 import React from "react";
 import { createClient } from "@/app/_lib/supabase/server";
 import TitleContainer from "@/app/_components/global/titlecontainer";
 import styles from "@/app/_components/stories/helpastorypage.module.css";
 import OnProgressVignette from "@/app/_components/stories/onprogressvignette";
 
+//Page to display the stories in progress:
 const Helpastory = async () => {
-  const supabase = await createClient();
+  const supabase = await createClient(); //Access Supabase
+  //Get the stories in progress:
   const { data: stories, error } = await supabase
     .from("stories")
     .select("*")

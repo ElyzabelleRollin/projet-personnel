@@ -55,17 +55,23 @@ const ReadStoryPage = async ({ params }) => {
         <p>
           <span className={styles.subtitle}>Collaborateurs:</span>{" "}
           <span className={styles.collaboratorsNames}>
+            {/* Create a new array with unique users and map over it to display the usernames */}
             {[
               ...new Map(
                 users.filter(Boolean).map((user) => [user.id, user])
               ).values(),
             ].map((user, index, arr) => (
-              <React.Fragment key={user.id}>
-                <a href={`/profiles/${user.id}`} className={styles.link}>
+              <>
+                <a
+                  href={`/profiles/${user.id}`}
+                  className={styles.link}
+                  key={user.id}
+                >
                   {user.username}
                 </a>
-                {index < arr.length - 1 && ", "}
-              </React.Fragment>
+                {/* Add a comma if it's not the last user */}
+                {index < arr.length - 1 && ", "}{" "}
+              </>
             ))}
           </span>
         </p>

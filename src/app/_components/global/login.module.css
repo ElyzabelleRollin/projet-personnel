@@ -5,9 +5,10 @@
     align-items: center;
     flex-direction: column;
     flex-grow: 1;
-    background-image: url("/img/background.png");
+    background-image: url("/img/background.svg");
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: center;
+    background-size: cover;
 }
 
 .title{

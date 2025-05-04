@@ -1,15 +1,15 @@
+//Imports:
 import React from "react";
 import styles from "@/app/_components/stories/profilestoryvignette.module.css";
 
+//Component to display the right stories for the profile page:
 const ProfileStoryVignette = ({ story, typeNeeded }) => {
+  //Check which stories should be displayed:
   const shouldDisplay =
     (typeNeeded === "ongoing" && !story.is_completed) ||
     (typeNeeded === "completed" && story.is_completed) ||
     typeNeeded === "favorite";
-
-  if (typeNeeded === "favorite") console.log("[FAVORITE]", story);
-
-  if (!shouldDisplay) return null;
+  if (!shouldDisplay) return null; //If the story should not be displayed, return null
 
   return (
     <div className={styles.vignette}>

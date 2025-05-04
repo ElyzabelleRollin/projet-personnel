@@ -1,26 +1,22 @@
+//Imports:
 import React from "react";
 import { createClient } from "@/app/_lib/supabase/server";
 import styles from "@/app/_components/stories/readstories.module.css";
 import H1 from "@/app/_components/global/h1";
 import AudioPlayer from "@/app/_components/stories/audioplayer";
 
+//Page to display a story when it's completed:
 const StoryPage = async ({ params }) => {
-  const { storiesSlug } = await params;
-
-  const supabase = await createClient();
+  const { storiesSlug } = await params; //Get the slug of the story from the url
+  const supabase = await createClient(); //Access Supabase
+  //Get the story data from Supabase:
   const { data: story } = await supabase
     .from("stories")
     .select("*")
     .eq("slug", storiesSlug)
     .single();
 
-  const { data: ideas } = await supabase
-    .from("proposals")
-    .select("*")
-    .eq("story_id", story.id)
-    .order("created_at", { ascending: true });
-
-  // Récupération des noms d'utilisateurs pour chaque collaborateur
+  //Promise.all to get the usernames of the collaborators:
   const users = await Promise.all(
     story.collaborators.map(async (collaboratorId) => {
       const { data: user, error } = await supabase
@@ -28,7 +24,7 @@ const StoryPage = async ({ params }) => {
         .select("id, username")
         .eq("id", collaboratorId)
         .single();
-
+      //If there is an error, log an error:
       if (error || !user) {
         console.error(
           "Erreur de récupération utilisateur pour:",
@@ -38,7 +34,7 @@ const StoryPage = async ({ params }) => {
         return null;
       }
 
-      return { id: user.id, username: user.username };
+      return { id: user.id, username: user.username }; //Return the user data
     })
   );
 
@@ -49,17 +45,23 @@ const StoryPage = async ({ params }) => {
         <p>
           <span className={styles.subtitle}>Collaborateurs:</span>{" "}
           <span className={styles.collaboratorsNames}>
+            {/* Create a new array with unique users and map over it to display the usernames */}
             {[
               ...new Map(
                 users.filter(Boolean).map((user) => [user.id, user])
               ).values(),
             ].map((user, index, arr) => (
-              <React.Fragment key={user.id}>
-                <a href={`/profiles/${user.id}`} className={styles.link}>
+              <>
+                <a
+                  href={`/profiles/${user.id}`}
+                  className={styles.link}
+                  key={user.id}
+                >
                   {user.username}
                 </a>
-                {index < arr.length - 1 && ", "}
-              </React.Fragment>
+                {/* Add a comma if it's not the last user */}
+                {index < arr.length - 1 && ", "}{" "}
+              </>
             ))}
           </span>
         </p>
