@@ -8,6 +8,7 @@ const createnewstoryform = () => {
   const [selectedStoryType, setSelectedStoryType] = useState(null);
   const [selectedNarrativeType, setSelectedNarrativeType] = useState(null);
   const [selectedVoice, setSelectedVoice] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const audioAsh = React.useRef(null);
   const audioEcho = React.useRef(null);
@@ -43,6 +44,7 @@ const createnewstoryform = () => {
 
   return (
     <form action={createStoryAction} className={styles.formCreateStory}>
+      <div className={loading ? styles.loader : styles.loaderHidden}></div>
       <div className={styles.inputContainer}>
         <label htmlFor="title" className={styles.label}>
           Titre
@@ -358,7 +360,10 @@ const createnewstoryform = () => {
           </div>
         </div>
       </div>
-      <Button content={"Créer votre histoire"} />
+      <Button
+        content={"Créer votre histoire"}
+        onClickAction={() => setLoading(true)}
+      />
     </form>
   );
 };

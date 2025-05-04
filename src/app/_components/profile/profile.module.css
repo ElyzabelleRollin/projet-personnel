@@ -54,6 +54,7 @@ background-size: cover;
     border-left: 1px solid var(--primary2);
     padding-left: 1rem;
     font-size: 1.2em;
+    min-width: 350px;
 }
 .list{
     display: flex;

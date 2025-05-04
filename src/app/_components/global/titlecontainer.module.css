@@ -1,5 +1,5 @@
 .titleContainer{
-    min-width: 397px;
+    /* min-width: 397px; */
     width: 40%;
     background-image: url("/img/openBook.svg"); 
     background-position: right center;
@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     z-index: -2;
+    min-width: 575px;
 
     @media only screen and (min-width: 2200px) {
         background-position: left center;
